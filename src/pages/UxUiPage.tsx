@@ -9,7 +9,12 @@ import UxProductDesignSystems from '../components/UxProductDesignSystems';
 
 export default function UxUiPage() {
   const { locale } = useLanguage();
-  const appProjects = projects.filter(p => p.categoryType === 'app');
+  // Carepill comes first before the game (Survive 'til five)
+  const appProjects = [
+    ...projects.filter(p => p.slug.includes('carepill')),
+    ...projects.filter(p => p.categoryType === 'app' && !p.slug.includes('carepill') && !p.slug.includes('survive')),
+    ...projects.filter(p => p.slug.includes('survive')),
+  ];
   const [selectedDemo, setSelectedDemo] = useState<string | null>(null);
   const [activeDesignSystemId, setActiveDesignSystemId] = useState<string>('carepill');
 
