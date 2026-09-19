@@ -4,6 +4,13 @@ import { useLanguage } from '../LanguageContext';
 
 const sites = [
   {
+    id: "hir-consultants",
+    name: "Real Estate & Investment",
+    url: "https://hirconsultants.com/",
+    image: "/hir-consultants.jpg",
+    tags: ["WordPress", "Real Estate"]
+  },
+  {
     id: "pension-canine",
     name: "Pension Canine",
     url: "https://pensioncaninefamiliale.fr/",
@@ -40,7 +47,7 @@ export default function WordPressWork() {
         </div>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {sites.map((site, index) => (
           <motion.div 
             key={site.id}

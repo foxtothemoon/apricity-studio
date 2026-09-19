@@ -1,62 +1,50 @@
-import { motion } from 'motion/react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
+import { Link } from 'react-router-dom';
+import { WorkHeroSection } from '../../components/ui/quordix-work-hero';
 
 export default function Hero() {
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
+
+  const title1 = locale === 'fr' ? 'CONCEVOIR' : 'DESIGN & BUILD';
+  const title2 = locale === 'fr' ? 'EN LIGNE' : 'ONLINE';
+  const badgeText = 'Apricity Studio';
+  const subtitle = locale === 'fr'
+    ? 'Je conçois, développe et donne vie aux idées en ligne.\n\nDu design visuel aux sites web et au marketing digital, je crée des projets esthétiques, fonctionnels et prêts pour le monde réel — avec l’IA pour m’accompagner de l’idée à la réalisation.'
+    : 'I design, build, and bring ideas online.\n\nFrom visual design and websites to digital marketing, I create work that looks good, works well, and is ready for the real world — with AI helping me move from idea to execution.';
+
+  const actionButtons = (
+    <div className="flex flex-col items-center gap-6">
+      <div className="flex flex-wrap items-center justify-center gap-3.5">
+        <a 
+          href="#overview" 
+          className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-stone-900 text-white text-sm font-semibold hover:bg-orange-600 transition-all shadow-sm hover:shadow-md active:scale-95 group"
+        >
+          <span>{locale === 'fr' ? 'Découvrir mes travaux' : 'Explore Work'}</span>
+          <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </a>
+        <Link 
+          to="/about" 
+          className="inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-stone-300/90 bg-white/90 backdrop-blur-sm text-stone-800 text-sm font-semibold hover:border-stone-900 hover:text-stone-950 hover:bg-white transition-all shadow-sm active:scale-95"
+        >
+          {locale === 'fr' ? 'À propos' : 'About Me'}
+        </Link>
+      </div>
+    </div>
+  );
 
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden px-6 md:px-12 max-w-7xl mx-auto">
-      <div className="w-full max-w-4xl z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-stone-900 bg-transparent text-stone-900 text-sm font-medium mb-8"
-        >
-          <Sparkles className="w-4 h-4 text-amber-500" />
-          {t('hero.available')}
-        </motion.div>
-
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-5xl md:text-7xl font-serif text-stone-900 leading-[1.1] mb-6 tracking-tight"
-        >
-          {t('hero.title.part1')} <span className="text-amber-600 italic">{t('hero.title.part2')}</span> <br className="hidden md:block" />{t('hero.title.part3')}{t('hero.title.part4')}
-        </motion.h1>
-
-        <motion.p 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg md:text-xl text-stone-600 max-w-2xl leading-relaxed mb-10 font-sans"
-        >
-          {t('hero.desc')}
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex flex-wrap items-center gap-6"
-        >
-          <a 
-            href="#projects" 
-            className="inline-flex items-center justify-center px-8 py-4 rounded-full border border-stone-900 bg-stone-900 text-[#FFFCF9] text-base font-medium hover:bg-[#FFFCF9] hover:text-stone-900 transition-all shadow-[4px_4px_0px_#d97706] hover:shadow-[0px_0px_0px_#d97706] hover:translate-x-[4px] hover:translate-y-[4px] group"
-          >
-            {t('hero.btn.projects')}
-            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
-          <a 
-            href="#profile" 
-            className="inline-flex items-center justify-center px-8 py-4 rounded-full border border-stone-900 text-stone-900 text-base font-medium hover:bg-stone-100 transition-all"
-          >
-            {t('hero.btn.profile')}
-          </a>
-        </motion.div>
-      </div>
-    </section>
+    <div className="relative pt-12 md:pt-16">
+      <WorkHeroSection
+        title1={title1}
+        title2={title2}
+        subtitle={subtitle}
+        badgeText={badgeText}
+        actions={actionButtons}
+        heightClass="90svh"
+        backgroundColor="transparent"
+        showBackgroundRings={false}
+      />
+    </div>
   );
 }
