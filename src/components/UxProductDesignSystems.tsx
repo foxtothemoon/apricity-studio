@@ -75,78 +75,80 @@ export const productDesignSystems: ProductDesignSystem[] = [
   {
     id: 'carepill',
     slug: 'carepill-medication-tracker',
-    productName: 'Carepill',
+    productName: 'CarePill',
     productType: {
-      en: 'Healthcare & Medication Tracker',
-      fr: 'Santé & Suivi de Médicaments'
+      en: 'Universal Health & Medication System',
+      fr: 'Système Universel de Suivi Médical'
     },
-    styleBadge: 'Senior-Friendly Medical UI',
+    styleBadge: 'Universal • Elder-Accommodating UI',
     icon: HeartPulse,
-    brandColor: '#0284C7',
-    accentBg: 'bg-sky-50',
-    accentBorder: 'border-sky-200',
-    accentText: 'text-sky-700',
+    brandColor: '#C4F5E1',
+    accentBg: 'bg-emerald-50/70',
+    accentBorder: 'border-emerald-200',
+    accentText: 'text-emerald-900',
     tagline: {
-      en: 'High-contrast, empathetic medical interface for seniors and remote caregivers.',
-      fr: 'Interface médicale haute visibilité pour personnes âgées et soignants à distance.'
+      en: 'Small moments. A kinder way to care — built for everyone, with in-app scalable text for elder accommodation.',
+      fr: 'De petits moments. Une manière bienveillante de prendre soin — conçu pour tous avec échelle de texte adaptable.'
     },
     summary: {
-      en: 'Carepill eliminates medical anxiety through clear role separation (Patient vs. Caregiver), 48px+ generous touch hitboxes, and WCAG AAA verified contrast.',
-      fr: 'Carepill élimine l’anxiété médicale grâce à la séparation des rôles (Patient vs Soignant), des zones tactiles de 48px+ et un contraste WCAG AAA.'
+      en: 'CarePill is a universal medication tracking and caregiver synchronization system. Designed for all users, it mindfully incorporates elder accommodations like customizable in-app font scaling, distinct dual spaces ("For myself" & "For someone I love"), and respectful state feedback.',
+      fr: 'CarePill est un système universel de suivi de traitement et de synchronisation des aidants. Conçu pour tous, il intègre une ergonomie dédiée aux aînés avec ajustement de la taille de police, espaces doubles étanches et retours d\'état apaisants.'
     },
-    previewColors: ['#0284C7', '#EA580C', '#16A34A', '#DC2626'],
+    previewColors: ['#C4F5E1', '#E8DDFE', '#FFF0AC', '#FFBFC7', '#FF9AB4'],
     colors: [
-      { name: 'Medical Sky', hex: '#0284C7', role: 'Primary Brand / Trust', contrast: 'AAA 7.2:1', textColor: '#FFFFFF' },
-      { name: 'Vital Action', hex: '#EA580C', role: 'Dose Confirmation CTA', contrast: 'AA 5.1:1', textColor: '#FFFFFF' },
-      { name: 'Adherence Green', hex: '#16A34A', role: 'Completed Meds Confirmation', contrast: 'AA 4.8:1', textColor: '#FFFFFF' },
-      { name: 'Alert Crimson', hex: '#DC2626', role: 'Missed Dose Warning', contrast: 'AA 5.6:1', textColor: '#FFFFFF' },
-      { name: 'Canvas Ground', hex: '#F8FAFC', role: 'Anti-Glare Neutral Canvas', contrast: 'AAA 14:1', textColor: '#0F172A' },
+      { name: 'Caretaker / My Care', hex: '#C4F5E1', role: 'Self-care role in bottom navigation (Ink #125943)', contrast: 'AA 5.2:1', textColor: '#125943' },
+      { name: 'Caregiver / Shared Care', hex: '#E8DDFE', role: 'Supportive caregiver space (Ink #61458C)', contrast: 'AA 5.8:1', textColor: '#61458C' },
+      { name: 'Taken / Completed', hex: '#C4F5E1', role: 'Completed record paired with written confirmation status', contrast: 'AA 5.2:1', textColor: '#125943' },
+      { name: 'Upcoming / Waiting', hex: '#FFF0AC', role: 'Waiting dose status (soft yellow, not caregiver lilac)', contrast: 'AA 5.0:1', textColor: '#544605' },
+      { name: 'Missed / Not Recorded', hex: '#FFBFC7', role: 'Respectful feedback: not proof a dose was skipped', contrast: 'AA 4.8:1', textColor: '#681B26' },
+      { name: 'Primary Action', hex: '#FF9AB4', role: 'Warm pink CTA: Continue, save, and confirm dose', contrast: 'AA 4.7:1', textColor: '#FFFFFF' },
+      { name: 'Neutral System', hex: '#202C37', role: 'Deep legible ink with #EDF0F3 borders and pure white canvas', contrast: 'AAA 15:1', textColor: '#FFFFFF' },
     ],
     typography: {
-      displayFont: 'Plus Jakarta Sans (SemiBold)',
-      bodyFont: 'Plus Jakarta Sans (Regular, 18px baseline)',
-      scale: 'Major Third (1.25) • 14px / 18px / 22px / 28px',
+      displayFont: 'LINE Seed Sans TH (Bold / SemiBold)',
+      bodyFont: 'LINE Seed Sans TH / Plus Jakarta Sans (Standard vs. Larger Text)',
+      scale: 'Dynamic In-App Scaling • 16px Standard / 22px Elder-Friendly Comfort',
       rule: {
-        en: '18px body text with 1.6 line height ensures effortless reading for low-vision seniors without eye strain.',
-        fr: 'Corps de texte en 18px avec interligne 1.6 assurant une lisibilité sans effort pour les seniors.'
+        en: 'In-app font size scaling allows older adults to expand typography without truncation, keeping line heights proportional and labels legible across Thai, English, and French.',
+        fr: 'L’ajustement de la taille de police permet aux aînés d’agrandir le texte sans coupure ni débordement en thaï, anglais et français.'
       }
     },
     layout: {
-      grid: '8pt Spacing Grid (8px, 16px, 24px, 32px)',
-      radius: 'Cards: 16px • Inner controls: 10px',
-      elevation: 'Soft 1px border (#E2E8F0) + light 2px elevation (no blinding drop shadows)'
+      grid: '8pt Soft Spacing Grid (8px, 16px, 24px, 32px)',
+      radius: 'Cards: 20px continuous curvature • Inner buttons: 12px pill',
+      elevation: 'Varied soft pastel fills with 1px border (#EDF0F3) — zero jarring drop shadows'
     },
     coreComponents: [
       {
-        title: { en: 'Patient vs. Caregiver Dual Mode', fr: 'Double Mode Patient vs Soignant' },
+        title: { en: 'In-App Text Scaling Engine', fr: 'Moteur d’Échelle Typographique' },
         desc: {
-          en: 'Instant role switcher adjusting the entire UI from a simplified senior view to a detailed caregiver log.',
-          fr: 'Bascule de rôle instantanée adaptant l’interface de la vue senior simplifiée au journal soignant.'
+          en: 'Instant user control over standard vs. larger text mode so older adults never struggle with micro-typography.',
+          fr: 'Bascule instantanée entre texte standard et agrandi pour garantir un confort de lecture optimal aux aînés.'
         },
-        tag: 'Navigation'
+        tag: 'Accessibility'
       },
       {
-        title: { en: '48px+ Pill Dose Action Card', fr: 'Carte Dose Tactile 48px+' },
+        title: { en: 'Dual Care Spaces ("Myself" vs "Someone I Love")', fr: 'Double Espace Soin (« Moi » vs « Proche »)' },
         desc: {
-          en: 'Extra-large touch area with instant visual checkmark and haptic feedback to prevent accidental double-doses.',
-          fr: 'Zone tactile extra-large avec coche de validation instantanée pour éviter les doubles prises.'
+          en: 'Independent bottom navigation cues (#C4F5E1 Mint for personal routine vs. #E8DDFE Lilac for caregiver view) with consent circles.',
+          fr: 'Repères visuels distincts dans la barre de navigation (Menthe pour soi vs Lilas pour un proche) avec cercles de consentement.'
         },
-        tag: 'Interaction'
+        tag: 'Architecture'
       },
       {
-        title: { en: '2-Step Safe Confirmation Modal', fr: 'Modal de Sécurité en 2 Étapes' },
+        title: { en: 'Non-Punitive State Feedback Guardrails', fr: 'Retours d’État Non-Punitifs' },
         desc: {
-          en: 'Intentional friction guard protecting seniors against accidental deletion of medication schedules.',
-          fr: 'Barrière de confirmation protégeant contre la suppression accidentelle d’ordonnances.'
+          en: 'Missed doses use empathetic soft coral (#FFBFC7) and gentle wording; save states auto-dismiss safely after 2 seconds.',
+          fr: 'Les doses non enregistrées s\'affichent en corail doux (#FFBFC7) sans jugement ; fermeture automatique en 2 secondes.'
         },
         tag: 'Safety'
       }
     ],
     accessibilityBadges: [
-      'WCAG 2.1 AAA Contrast',
-      '48px+ Touch Hitboxes',
-      'Reduced Motion Support',
-      'Senior Anti-Glare Palette'
+      'In-App Text Size Scaling (Elder-Inclusive)',
+      '48px+ Touch Target Hitboxes',
+      'Dual Color + Text State Indicators',
+      'LINE Seed Sans TH Multilingual Support'
     ]
   },
   {

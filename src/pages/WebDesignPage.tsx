@@ -60,7 +60,7 @@ export default function WebDesignPage() {
           <div className="flex items-center gap-2 mb-4">
             <span className="w-2.5 h-2.5 rounded-full bg-orange-500"></span>
             <span className="text-xs font-semibold tracking-wider text-orange-600 uppercase">
-              Discipline 01 • Web Design
+              Discipline 02 • Web Design & WordPress
             </span>
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold text-stone-900 tracking-tight mb-4">
@@ -159,92 +159,92 @@ export default function WebDesignPage() {
           </p>
         </div>
 
-        <div className="space-y-12">
+        {/* 2-Column Grid for Live Client Sites */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
           {webClientSites.map((site, index) => (
             <motion.div
               key={site.id}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="bg-white border border-stone-200/90 hover:border-stone-300 rounded-2xl p-7 md:p-10 transition-all duration-300 hover:shadow-lg"
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="group bg-white border border-stone-200/90 hover:border-orange-400 rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="space-y-4">
                 {/* Visual Preview */}
-                <div className="lg:col-span-6 relative group">
-                  <div className="aspect-[16/10] overflow-hidden rounded-xl bg-stone-100 border border-stone-200/80 relative shadow-2xs">
-                    <img
-                      src={site.image}
-                      alt={site.name}
-                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-103"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/20 transition-colors flex items-center justify-center">
-                      <a
-                        href={site.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="opacity-0 group-hover:opacity-100 transition-opacity px-5 py-2.5 rounded-full bg-stone-900 text-white text-xs font-semibold flex items-center gap-2 shadow-lg"
-                      >
-                        <span>Visit Live Site</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Metadata & Description */}
-                <div className="lg:col-span-6 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between gap-4 mb-3">
-                      <span className="text-xs font-bold text-orange-600 uppercase tracking-wider">
-                        Case 0{index + 1}
-                      </span>
-                      <a
-                        href={site.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs text-stone-500 hover:text-orange-600 transition-colors"
-                      >
-                        <span className="truncate max-w-[200px]">{site.url.replace('https://', '')}</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    </div>
-
-                    <h3 className="text-2xl md:text-3xl font-semibold text-stone-900 tracking-tight mb-2">
-                      {site.name}
-                    </h3>
-                    <p className="text-xs font-medium text-orange-800 bg-orange-50 px-2.5 py-1 rounded-md inline-block mb-4 border border-orange-200/60">
-                      {site.role[locale]}
-                    </p>
-                    <p className="text-stone-600 text-sm md:text-base leading-relaxed mb-6">
-                      {site.description[locale]}
-                    </p>
-                  </div>
-
-                  <div>
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {site.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2.5 py-1 text-xs font-medium rounded-md border border-stone-200 text-stone-700 bg-stone-50"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
+                <div className="aspect-[16/10] overflow-hidden rounded-xl bg-stone-100 border border-stone-200/80 relative shadow-2xs group/img">
+                  <img
+                    src={site.image}
+                    alt={site.name}
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/img:scale-103"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-stone-900/0 group-hover/img:bg-stone-900/25 transition-colors flex items-center justify-center">
                     <a
                       href={site.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-600 text-white text-xs font-semibold uppercase tracking-wider hover:bg-orange-500 transition-all shadow-md active:scale-95"
+                      className="opacity-0 group-hover/img:opacity-100 transition-opacity px-4 py-2 rounded-full bg-stone-900/90 backdrop-blur-sm text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg"
                     >
-                      <span>Launch Live Platform</span>
+                      <span>Visit Live Site</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   </div>
                 </div>
+
+                {/* Case Badge & Link */}
+                <div className="flex items-center justify-between gap-2 pt-1">
+                  <span className="text-xs font-mono font-bold text-stone-600 group-hover:text-orange-600 transition-colors bg-stone-100/70 group-hover:bg-orange-50 px-2.5 py-1 rounded-full border border-stone-200/60 group-hover:border-orange-200">
+                    CASE 0{index + 1}
+                  </span>
+                  <a
+                    href={site.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-xs font-mono text-stone-500 hover:text-orange-600 transition-colors truncate max-w-[200px]"
+                  >
+                    <span className="truncate">{site.url.replace('https://', '').replace(/\/$/, '')}</span>
+                    <ExternalLink className="w-3 h-3 shrink-0" />
+                  </a>
+                </div>
+
+                {/* Title & Role */}
+                <div className="space-y-2">
+                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-stone-900 group-hover:text-orange-600 transition-colors tracking-tight">
+                    {site.name}
+                  </h3>
+                  <span className="text-xs font-medium text-orange-800 bg-orange-50/90 px-2.5 py-1 rounded-md inline-block border border-orange-200/60 font-sans">
+                    {site.role[locale]}
+                  </span>
+                  <p className="text-xs sm:text-sm text-stone-600 leading-relaxed pt-1">
+                    {site.description[locale]}
+                  </p>
+                </div>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {site.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2.5 py-0.5 text-[11px] font-mono font-medium rounded-md border border-stone-200/80 text-stone-600 bg-stone-50"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Bottom Launch Button */}
+              <div className="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between">
+                <a
+                  href={site.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-stone-900 hover:bg-orange-600 text-white text-xs font-semibold uppercase tracking-wider transition-all shadow-2xs group/btn"
+                >
+                  <span>Launch Live Platform</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-stone-300 group-hover/btn:translate-x-0.5 transition-transform" />
+                </a>
               </div>
             </motion.div>
           ))}

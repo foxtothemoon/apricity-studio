@@ -1,6 +1,6 @@
 export type Locale = 'en' | 'fr';
 
-export type CategoryFilter = 'all' | 'wordpress_web' | 'ux_ui_app' | 'graphic_design' | 'online_marketing';
+export type CategoryFilter = 'all' | 'ux_ui_app' | 'wordpress_web' | 'vibe_coding' | 'graphic_design' | 'online_marketing';
 
 export interface LocalizedString {
   en: string;
@@ -31,11 +31,12 @@ export interface Project {
   slug: string;
   title: LocalizedString;
   category: LocalizedString;
-  categoryType: 'web' | 'app';
+  categoryType: 'web' | 'app' | 'vibe_coding';
   description: LocalizedString;
   imageUrl: string;
   images?: string[];
   liveUrl?: string;
+  figmaUrl?: string;
   tags: string[];
   details: ProjectDetails;
 }

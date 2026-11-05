@@ -6,8 +6,8 @@ import Home from './pages/Home';
 import ProjectDetail from './pages/ProjectDetail';
 import WebDesignPage from './pages/WebDesignPage';
 import UxUiPage from './pages/UxUiPage';
+import VibeCodingPage from './pages/VibeCodingPage';
 import GraphicDesignPage from './pages/GraphicDesignPage';
-import OnlineMarketingPage from './pages/OnlineMarketingPage';
 import AboutPage from './pages/AboutPage';
 import Demo from './demo';
 import { LanguageProvider } from './LanguageContext';
@@ -23,10 +23,11 @@ export default function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/web-design" element={<WebDesignPage />} />
             <Route path="/ux-ui" element={<UxUiPage />} />
+            <Route path="/web-design" element={<WebDesignPage />} />
+            <Route path="/vibe-coding" element={<VibeCodingPage />} />
             <Route path="/graphic-design" element={<GraphicDesignPage />} />
-            <Route path="/online-marketing" element={<OnlineMarketingPage />} />
+            <Route path="/online-marketing" element={<Navigate to="/" replace />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/demo" element={<Demo />} />
             <Route path="/projects/:slug" element={<ProjectDetail />} />

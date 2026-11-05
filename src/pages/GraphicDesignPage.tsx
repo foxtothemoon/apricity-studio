@@ -181,24 +181,24 @@ export default function GraphicDesignPage() {
           </h1>
           <p className="text-stone-600 text-lg md:text-xl max-w-3xl leading-relaxed mb-8">
             {locale === 'en'
-              ? 'AI-assisted IELTS tutoring ad banners, postpartum maternal care suites, luxury perfume packaging dielines, and precision print production finishing.'
-              : 'Bannières éducatives IELTS assistées par IA, suites de soins post-partum, packaging de parfumerie & lignes de découpe et finitions d’impression haute précision.'}
+              ? 'Creating high-impact advertising banners, cohesive brand campaigns, editorial brochures, packaging design with precision dielines, and print production products.'
+              : 'Création de bannières publicitaires percutantes, campagnes de marque cohérentes, brochures éditoriales, packaging avec lignes de découpe et supports d’impression haute précision.'}
           </p>
-          <div className="flex flex-wrap items-center gap-2.5 text-xs font-medium text-stone-600">
-            <span className="px-3.5 py-1.5 bg-blue-600 text-white font-semibold rounded-full shadow-xs">
-              IELTS Tutoring Banners (AI-Assisted)
+          <div className="flex flex-wrap items-center gap-2.5 text-xs font-medium text-stone-700 font-mono">
+            <span className="px-3.5 py-1.5 bg-white border border-stone-200 rounded-full shadow-2xs hover:border-purple-300 transition-colors">
+              {locale === 'fr' ? 'Bannières Publicitaires' : 'Advertising & Digital Banners'}
             </span>
-            <span className="px-3.5 py-1.5 bg-rose-50 text-rose-900 border border-rose-200 rounded-full shadow-2xs font-semibold">
-              Postpartum Care Banners
+            <span className="px-3.5 py-1.5 bg-white border border-stone-200 rounded-full shadow-2xs hover:border-purple-300 transition-colors">
+              {locale === 'fr' ? 'Brochures & Catalogues' : 'Brochures & Editorial Layouts'}
             </span>
-            <span className="px-3.5 py-1.5 bg-purple-50 text-purple-900 border border-purple-200 rounded-full shadow-2xs font-semibold">
-              Social Media Campaigns
+            <span className="px-3.5 py-1.5 bg-white border border-stone-200 rounded-full shadow-2xs hover:border-purple-300 transition-colors">
+              {locale === 'fr' ? 'Campagnes de Marque' : 'Marketing & Brand Campaigns'}
             </span>
-            <span className="px-3.5 py-1.5 bg-white border border-stone-200 rounded-full shadow-2xs font-medium">
-              Perfume Packaging & Dielines
+            <span className="px-3.5 py-1.5 bg-white border border-stone-200 rounded-full shadow-2xs hover:border-purple-300 transition-colors">
+              {locale === 'fr' ? 'Design de Packaging' : 'Packaging & Structural Dielines'}
             </span>
-            <span className="px-3.5 py-1.5 bg-white border border-stone-200 rounded-full shadow-2xs">
-              Print Production & Finishing
+            <span className="px-3.5 py-1.5 bg-white border border-stone-200 rounded-full shadow-2xs hover:border-purple-300 transition-colors">
+              {locale === 'fr' ? 'Produits d’Impression' : 'Printing Products & Finishes'}
             </span>
           </div>
         </div>
@@ -238,18 +238,13 @@ export default function GraphicDesignPage() {
                 <div className="relative max-w-5xl w-full max-h-[92vh] bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col border border-stone-300">
                   {/* Modal Header */}
                   <div className="p-5 md:px-8 border-b border-stone-200 flex items-center justify-between bg-stone-50">
-                    <div className="flex items-center gap-3">
-                      <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border ${activeProj.badgeColor}`}>
-                        {activeProj.brand}
-                      </span>
-                      <div>
-                        <h3 className="text-lg md:text-xl font-bold text-stone-900">
-                          {activeProj.title} — Packaging Dieline Blueprint
-                        </h3>
-                        <p className="text-xs text-stone-500">
-                          {activeProj.tagline} • {activeProj.type}
-                        </p>
-                      </div>
+                    <div>
+                      <h3 className="text-lg md:text-xl font-bold text-stone-900">
+                        {activeProj.title} — Packaging Dieline Blueprint
+                      </h3>
+                      <p className="text-xs text-stone-500">
+                        {activeProj.tagline} • {activeProj.type}
+                      </p>
                     </div>
 
                     <button

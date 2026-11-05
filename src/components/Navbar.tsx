@@ -11,10 +11,10 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { path: '/web-design', label: t('nav.web') },
     { path: '/ux-ui', label: t('nav.uxui') },
+    { path: '/web-design', label: t('nav.web') },
+    { path: '/vibe-coding', label: t('nav.vibecoding') },
     { path: '/graphic-design', label: t('nav.graphic') },
-    { path: '/online-marketing', label: t('nav.marketing') },
     { path: '/about', label: t('nav.about') },
   ];
 

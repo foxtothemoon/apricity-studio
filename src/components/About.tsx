@@ -68,13 +68,13 @@ export default function About() {
             
             <div className="pt-6 mt-8 flex flex-wrap gap-3">
               <span className="px-4 py-2 border border-stone-200 rounded-full text-xs font-medium tracking-widest uppercase text-stone-600">
+                English: Fluent Professional
+              </span>
+              <span className="px-4 py-2 border border-stone-200 rounded-full text-xs font-medium tracking-widest uppercase text-stone-600">
+                French: B1 Working Proficiency
+              </span>
+              <span className="px-4 py-2 border border-stone-200 rounded-full text-xs font-medium tracking-widest uppercase text-stone-600">
                 Thai: Native
-              </span>
-              <span className="px-4 py-2 border border-stone-200 rounded-full text-xs font-medium tracking-widest uppercase text-stone-600">
-                English: Fluent
-              </span>
-              <span className="px-4 py-2 border border-stone-200 rounded-full text-xs font-medium tracking-widest uppercase text-stone-600">
-                French: B1
               </span>
             </div>
           </motion.div>

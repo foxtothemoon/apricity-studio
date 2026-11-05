@@ -2,9 +2,10 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { projects } from '../data';
 import { useLanguage } from '../LanguageContext';
-import { ArrowLeft, ArrowUpRight, Palette, Type, ShieldCheck, Cpu, Sliders, Check } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Palette, Type, ShieldCheck, Cpu, Sliders, Check, ExternalLink } from 'lucide-react';
 import Footer from '../components/Footer';
 import { uxDesignSystems } from '../components/UxProductDesignSystems';
+import CarePillCaseStudy from '../components/CarePillCaseStudy';
 
 export default function ProjectDetail() {
   const { slug } = useParams();
@@ -20,12 +21,47 @@ export default function ProjectDetail() {
     );
   }
 
+  if (project.slug.includes('carepill')) {
+    return (
+      <div className="bg-[#FFFCF9]">
+        <main className="pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen">
+          <div className="flex items-center gap-3 mb-10">
+            <Link 
+              to="/ux-ui" 
+              className="inline-flex items-center gap-2 text-stone-500 hover:text-amber-600 transition-colors font-sans uppercase tracking-widest text-sm font-medium"
+            >
+              <ArrowLeft className="w-4 h-4" /> 
+              <span>{t('project.back')}</span>
+            </Link>
+            <span className="text-stone-300">•</span>
+            <Link to="/" className="text-stone-400 hover:text-stone-700 transition-colors text-xs font-mono uppercase tracking-wider">
+              Home Overview
+            </Link>
+          </div>
+
+          <CarePillCaseStudy />
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="bg-[#FFFCF9]">
       <main className="pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen">
-        <Link to="/" className="inline-flex items-center gap-2 text-stone-500 hover:text-amber-600 transition-colors mb-12 font-sans uppercase tracking-widest text-sm font-medium">
-          <ArrowLeft className="w-4 h-4" /> {t('project.back')}
-        </Link>
+        <div className="flex items-center gap-3 mb-12">
+          <Link 
+            to={project.categoryType === 'vibe_coding' ? '/vibe-coding' : '/ux-ui'} 
+            className="inline-flex items-center gap-2 text-stone-500 hover:text-amber-600 transition-colors font-sans uppercase tracking-widest text-sm font-medium"
+          >
+            <ArrowLeft className="w-4 h-4" /> 
+            <span>{project.categoryType === 'vibe_coding' ? 'Back to Vibe Coding' : t('project.back')}</span>
+          </Link>
+          <span className="text-stone-300">•</span>
+          <Link to="/" className="text-stone-400 hover:text-stone-700 transition-colors text-xs font-mono uppercase tracking-wider">
+            Home Overview
+          </Link>
+        </div>
         
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -52,22 +88,139 @@ export default function ProjectDetail() {
               </span>
             ))}
           </div>
-          {project.liveUrl && (
-            <div className="mb-16">
+
+          <div className="flex flex-wrap items-center gap-3 mb-16">
+            {project.figmaUrl && (
+              <a 
+                href={project.figmaUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-stone-900 text-white text-sm font-semibold hover:bg-black transition-all shadow-md active:scale-95 group"
+              >
+                <span>Inspect in Figma</span>
+                <ExternalLink className="ml-2 w-4 h-4 text-emerald-400" />
+              </a>
+            )}
+
+            {project.liveUrl && (
               <a 
                 href={project.liveUrl} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-orange-600 text-white text-sm font-semibold hover:bg-orange-500 transition-all shadow-md active:scale-95 group"
+                className="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-emerald-700 text-white text-sm font-semibold hover:bg-emerald-800 transition-all shadow-md active:scale-95 group"
               >
                 {t('project.prototype')}
                 <ArrowUpRight className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </a>
-            </div>
-          )}
+            )}
+          </div>
         </motion.div>
 
         {(() => {
+          if (project.slug.includes('carepill')) {
+            const artifacts = [
+              {
+                title: "01 · Project Philosophy & Dual Care Spaces",
+                desc: "Universal medication tracking built on 'Small moments. A kinder way to care.' Segmented into distinct 'For myself' (#C4F5E1 Mint) and 'For someone I love' (#E8DDFE Lilac) spaces with mutual consent.",
+                img: "/assets/aistudio/00___CarePill_87abe415.png"
+              },
+              {
+                title: "02 · Intentional Color System ('Color with a Clear Job')",
+                desc: "Systematic color token architecture: Caretaker Mint, Caregiver Lilac, Taken confirmation, Upcoming soft yellow (#FFF0AC), Missed/unrecorded soft coral (#FFBFC7), and Warm Pink primary action.",
+                img: "/assets/aistudio/02___Color___role_71f20287.png"
+              },
+              {
+                title: "03 · Coherent Care Model & Architectural Pillars",
+                desc: "5 UX Pillars: 01 Role clarity (QR onboarding & Care ID), 02 Restrained color, 03 Information hierarchy, 04 Gentle 2s dismissal actions, and 05 Realistic scheduling with collapsed custom weekdays.",
+                img: "/assets/aistudio/04___Case_study_8fdd29c2.png"
+              },
+              {
+                title: "04 · Beyond the Happy Path: Edge Cases & Typography Scaling",
+                desc: "In-app scalable typography (Standard vs. Larger text mode for elderly comfort without clipping), empty states, consent circles, dark mode tokens, and LINE Seed Sans TH multilingual line-height verification.",
+                img: "/assets/aistudio/06___States___review_c5b61f1b.png"
+              },
+              {
+                title: "05 · Interactive Figma Prototype (40+ Interconnected Screens)",
+                desc: "High-density prototype node graph in Figma showing complete interaction architecture, role switching, confirmation sheets, and multi-path branching.",
+                img: "/assets/aistudio/Screenshot_2026-10-28_114929_f77479ee.png"
+              }
+            ];
+
+            return (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="space-y-12 mb-24"
+              >
+                <div className="grid grid-cols-1 gap-10">
+                  {artifacts.map((item, idx) => (
+                    <div 
+                      key={idx} 
+                      className="bg-white border border-stone-200/90 rounded-3xl overflow-hidden p-6 md:p-8 shadow-xs hover:shadow-md transition-shadow"
+                    >
+                      <div className="flex flex-col md:flex-row md:items-center justify-between pb-4 mb-5 border-b border-stone-100 gap-2">
+                        <div>
+                          <span className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-700 block mb-1">
+                            Figma Artifact {item.title.split('·')[0].trim()}
+                          </span>
+                          <h3 className="text-lg md:text-xl font-bold text-stone-900">
+                            {item.title}
+                          </h3>
+                        </div>
+                        <p className="text-xs md:text-sm text-stone-600 max-w-xl leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
+
+                      <div className="rounded-2xl overflow-hidden border border-stone-200/80 bg-[#FAFAFA] flex items-center justify-center">
+                        <img 
+                          src={item.img} 
+                          alt={item.title}
+                          className="w-full h-auto max-h-[750px] object-contain"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Live GIF Demo Interaction */}
+                <div className="p-8 rounded-3xl bg-stone-900 text-white flex flex-col md:flex-row items-center justify-between gap-8">
+                  <div className="space-y-3 max-w-md">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400">
+                      Live Interaction Test
+                    </span>
+                    <h3 className="text-2xl font-bold">
+                      One-Tap Logging Micro-Interaction
+                    </h3>
+                    <p className="text-xs text-stone-300 leading-relaxed">
+                      Instant feedback with haptic-ready confirmation checkmarks and gentle auto-dismissing modals tested for older adults and busy individuals.
+                    </p>
+                    <div className="pt-2">
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-stone-950 font-semibold text-xs transition-colors"
+                      >
+                        <span>Open Live Web App</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="w-full max-w-[320px] rounded-2xl overflow-hidden border border-stone-700 shadow-2xl bg-black">
+                    <img
+                      src="/carepill-action.gif"
+                      alt="Carepill Live Interaction"
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            );
+          }
+
           const galleryImages = project.images ? project.images.filter(img => !img.includes('figma')) : [];
           if (galleryImages.length > 0) {
             return (
@@ -75,26 +228,20 @@ export default function ProjectDetail() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-4 md:gap-6 mb-24"
+                className="flex flex-wrap justify-center items-center gap-6 sm:gap-8 max-w-3xl mx-auto w-full mb-20"
               >
-                {galleryImages.map((img, idx) => {
-                  let colSpan = "md:col-span-6 sm:col-span-2";
-                  if (img.includes('carepill-action')) {
-                    colSpan = "md:col-span-4 md:col-start-5 sm:col-span-2 mx-auto w-full max-w-[400px]";
-                  } else if (img.includes('carepill-')) {
-                    colSpan = "md:col-span-3 sm:col-span-1";
-                  }
-                  
-                  return (
-                    <div key={idx} className={`border border-stone-200/80 bg-stone-50 overflow-hidden relative rounded-2xl shadow-sm ${colSpan}`}>
-                       <img 
-                        src={img} 
-                        alt={`${project.title[locale]} - Screenshot ${idx + 1}`}
-                        className="w-full h-auto block"
-                      />
-                    </div>
-                  );
-                })}
+                {galleryImages.map((img, idx) => (
+                  <div 
+                    key={idx} 
+                    className="w-full max-w-[250px] sm:max-w-[280px] rounded-[28px] overflow-hidden border border-stone-200/90 bg-stone-100/50 p-1.5 shadow-sm hover:shadow-md transition-shadow"
+                  >
+                    <img 
+                      src={img} 
+                      alt={`${project.title[locale]} - Screenshot ${idx + 1}`}
+                      className="w-full h-auto block rounded-[22px] max-h-[520px] object-cover"
+                    />
+                  </div>
+                ))}
               </motion.div>
             );
           } else {
@@ -103,12 +250,12 @@ export default function ProjectDetail() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative aspect-video w-full overflow-hidden border border-stone-200 rounded-2xl shadow-md mb-24"
+                className="max-w-2xl mx-auto overflow-hidden border border-stone-200/90 rounded-2xl shadow-sm mb-20 bg-stone-50/50 p-2"
               >
                 <img 
                   src={project.imageUrl} 
                   alt={project.title[locale]}
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto max-h-[440px] object-contain rounded-xl block mx-auto"
                 />
               </motion.div>
             );
@@ -211,7 +358,7 @@ export default function ProjectDetail() {
                         <span>Back-of-House Design System</span>
                       </div>
                       <h4 className="text-xl font-bold text-stone-900">
-                        {matchingSystem.appName} — Design Tokens & Component Hierarchy
+                        {matchingSystem.appName} : Design Tokens & Component Hierarchy
                       </h4>
                     </div>
                     <span className="px-3 py-1 rounded-full text-xs font-semibold bg-stone-100 text-stone-700 border border-stone-200 font-mono self-start sm:self-auto">

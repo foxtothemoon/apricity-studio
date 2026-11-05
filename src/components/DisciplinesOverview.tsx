@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Globe, Smartphone, Palette, TrendingUp, ArrowUpRight } from 'lucide-react';
+import { Globe, Smartphone, Sparkles, ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { Link } from 'react-router-dom';
 
@@ -9,28 +9,6 @@ export default function DisciplinesOverview() {
   const disciplines = [
     {
       num: '01',
-      id: 'web-design',
-      path: '/web-design',
-      icon: Globe,
-      title: {
-        en: 'Web Design & WordPress',
-        fr: 'Web Design & WordPress'
-      },
-      summary: {
-        en: 'General websites to e-commerce — adapting AI to reduce repetitive work, speed up design & SEO analysis, deployed live with HTML/CSS backend editing.',
-        fr: 'Du site vitrine au e-commerce — intégrant l\'IA pour réduire les tâches répétitives, accélérer le design et le SEO, déployé en direct avec personnalisation HTML/CSS.'
-      },
-      tags: [
-        { en: 'AI-Enhanced Workflow', fr: 'Workflow assisté par IA' },
-        { en: 'Showcase to E-Commerce', fr: 'Vitrine au E-Commerce' },
-        { en: 'Live Deployment', fr: 'Déploiement direct' },
-        { en: 'HTML/CSS Backend', fr: 'Back-end HTML/CSS' }
-      ],
-      badge: 'Live Websites',
-      badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200/70'
-    },
-    {
-      num: '02',
       id: 'ux-ui',
       path: '/ux-ui',
       icon: Smartphone,
@@ -39,60 +17,60 @@ export default function DisciplinesOverview() {
         fr: 'UX UI & Design d\'Applications'
       },
       summary: {
-        en: 'Clear mobile and web interfaces designed in Figma, tested with users, and built for everyday ease of use.',
-        fr: 'Interfaces mobiles et web claires conçues dans Figma, testées pour un usage quotidien simple et fluide.'
+        en: 'Human-centered mobile & web applications designed in Figma, governed by strict design systems, and tested for accessibility.',
+        fr: 'Applications mobiles et web centrées sur l\'humain conçues dans Figma, régies par des design systems stricts et testées pour l\'accessibilité.'
       },
       tags: [
-        { en: 'Figma Design', fr: 'Design Figma' },
-        { en: 'Mobile Apps', fr: 'Apps Mobiles' },
-        { en: 'User Flows', fr: 'Parcours utilisateurs' },
-        { en: 'Accessible UI', fr: 'UI Accessible' }
+        { en: 'Figma Systems', fr: 'Systèmes Figma' },
+        { en: 'Mobile & Web UX', fr: 'UX Mobile & Web' },
+        { en: 'WCAG AA Accessibility', fr: 'Accessibilité WCAG AA' },
+        { en: 'Interactive Prototypes', fr: 'Prototypes interactifs' }
       ],
-      badge: 'Case Studies',
+      badge: 'Figma & Systems',
       badgeColor: 'bg-blue-50 text-blue-700 border-blue-200/70'
     },
     {
-      num: '03',
-      id: 'graphic-design',
-      path: '/graphic-design',
-      icon: Palette,
+      num: '02',
+      id: 'web-design',
+      path: '/web-design',
+      icon: Globe,
       title: {
-        en: 'Graphic Design & Visual Systems',
-        fr: 'Design Graphique & Systèmes Visuels'
+        en: 'Web Design & WordPress',
+        fr: 'Web Design & WordPress'
       },
       summary: {
-        en: 'Perfume packaging with production dielines, educational social media campaigns, and brand identity systems.',
-        fr: 'Packaging de parfum avec lignes de découpe, campagnes éducatives sur les réseaux sociaux et identités de marque.'
+        en: 'Custom WordPress & e-commerce platforms — fast loading speeds, responsive layouts, clean code, and SEO readiness from day one.',
+        fr: 'Sites WordPress et e-commerce sur mesure — vitesses de chargement rapides, responsive design, code propre et SEO prêt dès le premier jour.'
       },
       tags: [
-        { en: 'Packaging Design', fr: 'Design de packaging' },
-        { en: 'Social Campaigns', fr: 'Campagnes réseaux' },
-        { en: 'Brand Identity', fr: 'Identité de marque' },
-        { en: 'Vector Art', fr: 'Art vectoriel' }
+        { en: 'WordPress Expert', fr: 'Expert WordPress' },
+        { en: 'Responsive Design', fr: 'Design Responsive' },
+        { en: 'SEO & Performance', fr: 'SEO & Performance' },
+        { en: 'HTML5 & CSS3', fr: 'HTML5 & CSS3' }
       ],
-      badge: 'Packaging & Brand',
-      badgeColor: 'bg-purple-50 text-purple-700 border-purple-200/70'
+      badge: 'Live Websites',
+      badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200/70'
     },
     {
-      num: '04',
-      id: 'online-marketing',
-      path: '/online-marketing',
-      icon: TrendingUp,
+      num: '03',
+      id: 'vibe-coding',
+      path: '/vibe-coding',
+      icon: Sparkles,
       title: {
-        en: 'Online Marketing & Growth',
-        fr: 'Marketing Digital & Croissance'
+        en: 'Vibe Coding & AI Apps',
+        fr: 'Vibe Coding & Applications IA'
       },
       summary: {
-        en: 'Targeted Google Ads, technical SEO, and conversion tracking that drive real traffic and inquiries.',
-        fr: 'Campagnes Google Ads ciblées, SEO technique et suivi des conversions pour générer du trafic et des demandes.'
+        en: 'High-velocity fullstack micro-apps & zero-dependency games — pairing architectural intent with Claude 3.7 & Google AI Studio.',
+        fr: 'Micro-apps fullstack haute vélocité et jeux sans dépendances — alliant vision d\'architecture et pilotage avec Claude 3.7 & Google AI Studio.'
       },
       tags: [
-        { en: 'Google Ads', fr: 'Google Ads' },
-        { en: 'SEO & Search', fr: 'SEO & Recherche' },
-        { en: 'Conversion Tracking', fr: 'Suivi des conversions' },
-        { en: 'GA4 Analytics', fr: 'Analytique GA4' }
+        { en: 'Prompt Architecture', fr: 'Architecture de Prompts' },
+        { en: 'Zero-Dependency Canvas', fr: 'Canvas sans dépendances' },
+        { en: 'Web Audio Synthesis', fr: 'Synthèse Web Audio' },
+        { en: 'Netlify Continuous Deploy', fr: 'Déploiement Continu Netlify' }
       ],
-      badge: 'Data & Growth',
+      badge: 'AI Full-Stack',
       badgeColor: 'bg-amber-50 text-amber-700 border-amber-200/70'
     }
   ];
@@ -118,7 +96,7 @@ export default function DisciplinesOverview() {
           </div>
           <div className="flex items-center gap-2 text-xs font-medium text-stone-500">
             <span className="px-3 py-1 bg-white border border-stone-200 rounded-full shadow-2xs">
-              4 Disciplines
+              3 Disciplines
             </span>
             <span className="px-3 py-1 bg-white border border-stone-200 rounded-full shadow-2xs">
               EN / FR
@@ -126,8 +104,8 @@ export default function DisciplinesOverview() {
           </div>
         </div>
 
-        {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        {/* 3 Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {disciplines.map((item, index) => {
             const Icon = item.icon;
             return (

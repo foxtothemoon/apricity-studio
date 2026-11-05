@@ -1,50 +1,117 @@
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { motion } from 'motion/react';
+import { 
+  ArrowDown, 
+  ArrowUpRight, 
+  Sparkles, 
+  Layers, 
+  Compass, 
+  Globe 
+} from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
-import { Link } from 'react-router-dom';
-import { WorkHeroSection } from '../../components/ui/quordix-work-hero';
+
+import DancingLetters from '@/components/ui/dancing-letters';
 
 export default function Hero() {
-  const { locale, t } = useLanguage();
-
-  const title1 = locale === 'fr' ? 'CONCEVOIR' : 'DESIGN & BUILD';
-  const title2 = locale === 'fr' ? 'EN LIGNE' : 'ONLINE';
-  const badgeText = 'Apricity Studio';
-  const subtitle = locale === 'fr'
-    ? 'Je conçois, développe et donne vie aux idées en ligne.\n\nDu design visuel aux sites web et au marketing digital, je crée des projets esthétiques, fonctionnels et prêts pour le monde réel — avec l’IA pour m’accompagner de l’idée à la réalisation.'
-    : 'I design, build, and bring ideas online.\n\nFrom visual design and websites to digital marketing, I create work that looks good, works well, and is ready for the real world — with AI helping me move from idea to execution.';
-
-  const actionButtons = (
-    <div className="flex flex-col items-center gap-6">
-      <div className="flex flex-wrap items-center justify-center gap-3.5">
-        <a 
-          href="#overview" 
-          className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-stone-900 text-white text-sm font-semibold hover:bg-orange-600 transition-all shadow-sm hover:shadow-md active:scale-95 group"
-        >
-          <span>{locale === 'fr' ? 'Découvrir mes travaux' : 'Explore Work'}</span>
-          <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-        </a>
-        <Link 
-          to="/about" 
-          className="inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-stone-300/90 bg-white/90 backdrop-blur-sm text-stone-800 text-sm font-semibold hover:border-stone-900 hover:text-stone-950 hover:bg-white transition-all shadow-sm active:scale-95"
-        >
-          {locale === 'fr' ? 'À propos' : 'About Me'}
-        </Link>
-      </div>
-    </div>
-  );
+  const { locale } = useLanguage();
 
   return (
-    <div className="relative pt-12 md:pt-16">
-      <WorkHeroSection
-        title1={title1}
-        title2={title2}
-        subtitle={subtitle}
-        badgeText={badgeText}
-        actions={actionButtons}
-        heightClass="90svh"
-        backgroundColor="transparent"
-        showBackgroundRings={false}
-      />
-    </div>
+    <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
+      {/* Main Hero Stage */}
+      <div className="max-w-4xl mx-auto text-center space-y-8">
+        {/* Hero Title with Dancing Letters in Vibrant Signature Orange */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="space-y-4"
+        >
+          <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 gap-y-1">
+
+            <DancingLetters
+              text="DESIGN"
+              className="font-heading"
+              letterClassName="font-heading text-4xl sm:text-6xl md:text-7xl font-bold !text-orange-600 dark:!text-orange-500 hover:!text-orange-500 transition-colors"
+            />
+            <DancingLetters
+              text="WITH"
+              className="font-heading"
+              letterClassName="font-heading text-4xl sm:text-6xl md:text-7xl font-bold !text-orange-600 dark:!text-orange-500 hover:!text-orange-500 transition-colors"
+            />
+            <DancingLetters
+              text="CREATIVE,"
+              className="font-heading"
+              letterClassName="font-heading text-4xl sm:text-6xl md:text-7xl font-bold !text-orange-600 dark:!text-orange-500 hover:!text-orange-500 transition-colors"
+            />
+            <DancingLetters
+              text="CLARITY"
+              className="font-heading"
+              letterClassName="font-heading text-4xl sm:text-6xl md:text-7xl font-bold !text-orange-600 dark:!text-orange-500 hover:!text-orange-500 transition-colors"
+            />
+            <DancingLetters
+              text="&"
+              className="font-heading"
+              letterClassName="font-heading text-4xl sm:text-6xl md:text-7xl font-bold !text-orange-500 dark:!text-orange-400 hover:!text-orange-400 transition-colors"
+            />
+            <DancingLetters
+              text="CARE"
+              className="font-heading"
+              letterClassName="font-heading text-4xl sm:text-6xl md:text-7xl font-bold !text-orange-600 dark:!text-orange-500 hover:!text-orange-500 transition-colors"
+            />
+          </div>
+          <p className="text-lg sm:text-xl text-stone-600 max-w-2xl mx-auto leading-relaxed font-sans font-normal">
+            {locale === 'fr'
+              ? 'Designer UX/UI, Designer Graphique & Créatrice Web concevant des produits mobiles accessibles, des design systems Figma modulaires et des plateformes web réactives.'
+              : 'UX/UI Designer, Graphic Designer & Web Creator crafting accessible digital products, scalable Figma design systems, and responsive web platforms.'}
+          </p>
+        </motion.div>
+
+        {/* Core Discipline Tags */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          className="flex flex-wrap items-center justify-center gap-2.5 text-xs text-stone-700 font-sans"
+        >
+          <span className="px-3.5 py-1.5 rounded-full bg-stone-100/90 border border-stone-200/80 font-medium">
+            {locale === 'fr' ? '📱 Design Produit UX/UI' : '📱 UX/UI Product Design'}
+          </span>
+          <span className="px-3.5 py-1.5 rounded-full bg-stone-100/90 border border-stone-200/80 font-medium">
+            {locale === 'fr' ? '🌐 Web Design' : '🌐 Web Design'}
+          </span>
+          <span className="px-3.5 py-1.5 rounded-full bg-stone-100/90 border border-stone-200/80 font-medium">
+            {locale === 'fr' ? '✨ Vibe Coding IA' : '✨ AI Vibe Coding'}
+          </span>
+          <span className="px-3.5 py-1.5 rounded-full bg-stone-100/90 border border-stone-200/80 font-medium">
+            {locale === 'fr' ? '🎨 Design Graphique' : '🎨 Graphic Design'}
+          </span>
+        </motion.div>
+
+        {/* Direct Action CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          className="flex flex-wrap items-center justify-center gap-3.5 pt-2 font-sans"
+        >
+          {/* Scroll down to Projects */}
+          <a
+            href="#carepill-flagship"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-stone-900 hover:bg-orange-600 text-white text-xs font-semibold uppercase tracking-wider transition-all shadow-md active:scale-95 group font-sans"
+          >
+            <span>{locale === 'fr' ? 'EXPLORER LES PROJETS' : 'EXPLORE PROJECTS'}</span>
+            <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+          </a>
+
+          {/* Jump to Contact */}
+          <a
+            href="#about-intro"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border-2 border-stone-900 bg-white hover:bg-stone-900 hover:text-white text-stone-900 text-xs font-bold uppercase tracking-wider transition-all shadow-sm active:scale-95 font-sans"
+          >
+            <span>{locale === 'fr' ? 'Contact' : 'Contact'}</span>
+            <ArrowDown className="w-3.5 h-3.5" />
+          </a>
+        </motion.div>
+      </div>
+    </section>
   );
 }

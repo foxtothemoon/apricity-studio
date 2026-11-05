@@ -15,12 +15,12 @@ export default function AppDesignSection() {
       {/* Category Header */}
       <div className="mb-16">
         <div className="flex items-center gap-3 mb-4">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-mono font-semibold tracking-wider uppercase">
-            <Smartphone className="w-3.5 h-3.5 text-amber-600" />
-            02 / UX/UI DESIGNER & APP DESIGN
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-xs font-mono font-semibold tracking-wider uppercase">
+            <Smartphone className="w-3.5 h-3.5 text-blue-600" />
+            01 / UX/UI & APP DESIGN
           </span>
           <span className="h-px bg-stone-300 flex-1 max-w-[80px]"></span>
-          <span className="text-xs font-mono text-stone-400">2 In-depth Case Studies</span>
+          <span className="text-xs font-mono text-stone-400">Flagship Healthcare UX</span>
         </div>
 
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">

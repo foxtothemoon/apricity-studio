@@ -22,8 +22,6 @@ export default function Marquee() {
             <span className="mx-6 text-amber-500 text-lg">✦</span>
             <span className="mx-6">{t('marquee.wordpress')}</span>
             <span className="mx-6 text-amber-500 text-lg">✦</span>
-            <span className="mx-6">{t('marquee.marketing')}</span>
-            <span className="mx-6 text-amber-500 text-lg">✦</span>
             <span className="mx-6">{t('marquee.proto')}</span>
             <span className="mx-6 text-amber-500 text-lg">✦</span>
             <span className="mx-6">{t('marquee.webdev')}</span>

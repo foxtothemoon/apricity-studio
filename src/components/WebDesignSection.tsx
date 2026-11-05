@@ -17,7 +17,7 @@ export default function WebDesignSection() {
         <div className="flex items-center gap-3 mb-4">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-mono font-semibold tracking-wider uppercase">
             <Globe className="w-3.5 h-3.5 text-amber-600" />
-            01 / WEB DESIGN & WORDPRESS
+            02 / WEB DESIGN & WORDPRESS
           </span>
           <span className="h-px bg-stone-300 flex-1 max-w-[80px]"></span>
           <span className="text-xs font-mono text-stone-400">4 Live Deployments</span>
@@ -201,86 +201,6 @@ export default function WebDesignSection() {
           ))}
         </div>
       </div>
-
-      {/* Part B: Interactive Web Experience (Survive 'til Five) */}
-      {surviveProject && (
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6 }}
-          className="bg-stone-900 text-stone-100 p-8 md:p-12 rounded-sm border border-stone-800 relative overflow-hidden"
-        >
-          {/* Background decorative grid */}
-          <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:16px_16px]"></div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
-            {/* Visual preview */}
-            <div className="lg:col-span-6 order-2 lg:order-1">
-              <div className="relative border-2 border-stone-700 rounded-sm overflow-hidden bg-black shadow-2xl group">
-                <img 
-                  src={surviveProject.images?.[1] || surviveProject.imageUrl} 
-                  alt={surviveProject.title[locale]} 
-                  className="w-full h-auto object-cover"
-                />
-                <div className="absolute top-3 left-3 bg-black/80 px-2.5 py-1 rounded text-[10px] font-mono text-amber-400 border border-amber-500/30">
-                  HTML5 CANVAS • ZERO DEPENDENCY
-                </div>
-              </div>
-            </div>
-
-            {/* Content */}
-            <div className="lg:col-span-6 order-1 lg:order-2 flex flex-col justify-center">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-mono uppercase tracking-widest border border-amber-500/30">
-                  Interactive Web Experience
-                </span>
-                <span className="text-stone-500 text-xs font-mono">No. {surviveProject.id}</span>
-              </div>
-
-              <h4 className="text-3xl md:text-4xl font-serif text-white mb-4 italic">
-                {surviveProject.title[locale]}
-              </h4>
-
-              <p className="text-stone-300 font-sans text-base leading-relaxed mb-6">
-                {surviveProject.description[locale]}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-8">
-                {surviveProject.tags.map((tag) => (
-                  <span 
-                    key={tag}
-                    className="px-3 py-1 rounded-full bg-stone-800 border border-stone-700 text-stone-300 text-xs font-mono"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-4">
-                {surviveProject.liveUrl && (
-                  <a 
-                    href={surviveProject.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-500 text-stone-950 font-medium text-sm hover:bg-amber-400 transition-colors shadow-[3px_3px_0px_#fff]"
-                  >
-                    {t('project.prototype')}
-                    <ArrowUpRight className="w-4 h-4" />
-                  </a>
-                )}
-                <Link
-                  to={`/projects/${surviveProject.slug}`}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-stone-700 bg-stone-800 text-stone-200 font-medium text-sm hover:bg-stone-700 hover:text-white transition-colors"
-                >
-                  <BookOpen className="w-4 h-4 text-amber-400" />
-                  Read Case Study
-                </Link>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      )}
     </section>
   );
 }

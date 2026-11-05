@@ -1,29 +1,50 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Smartphone, ArrowUpRight, CheckCircle2, Play, X, ExternalLink, Sliders } from 'lucide-react';
+import { motion } from 'motion/react';
+import { 
+  Smartphone, 
+  ArrowUpRight, 
+  CheckCircle2, 
+  ExternalLink, 
+  Sparkles,
+  Users,
+  Workflow,
+  Layers,
+  PlayCircle,
+  ArrowRight
+} from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { projects } from '../data';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
-import UxProductDesignSystems from '../components/UxProductDesignSystems';
 
 export default function UxUiPage() {
   const { locale } = useLanguage();
-  // Carepill comes first before the game (Survive 'til five)
-  const appProjects = [
-    ...projects.filter(p => p.slug.includes('carepill')),
-    ...projects.filter(p => p.categoryType === 'app' && !p.slug.includes('carepill') && !p.slug.includes('survive')),
-    ...projects.filter(p => p.slug.includes('survive')),
-  ];
-  const [selectedDemo, setSelectedDemo] = useState<string | null>(null);
-  const [activeDesignSystemId, setActiveDesignSystemId] = useState<string>('carepill');
+  const navigate = useNavigate();
+  // 3 UX/UI Showcase Projects in exact requested order: CarePill, MoodyChild, Route
+  const carepill = projects.find(p => p.slug.includes('carepill'));
+  const moodyChild = projects.find(p => p.slug.includes('moody'));
+  const routeApp = projects.find(p => p.slug.includes('route'));
+
+  const appProjects = [carepill, moodyChild, routeApp].filter(Boolean) as typeof projects;
 
   const getProjectHighlights = (slug: string) => {
+    if (slug.includes('route')) {
+      return [
+        locale === 'fr'
+          ? 'Disponibilité des bornes en direct et calcul d\'itinéraire batterie'
+          : 'Real-time charger availability and battery trip planning',
+        locale === 'fr'
+          ? 'Paiement Plug-and-Charge unifié et filtres de puissance (kW)'
+          : 'Unified Plug-and-Charge with charging speed filters (kW)',
+        locale === 'fr'
+          ? 'Design System Figma dédié et interface nuit sans distraction'
+          : 'Dedicated automotive Figma design system and night-mode UI'
+      ];
+    }
     if (slug.includes('survive')) {
       return [
         'Face-gesture input (smile/scowl interaction)',
         'HTML5 Canvas & Web Audio engine',
-        '30–60 second micro-break loop'
+        '30 to 60 second micro-break loop'
       ];
     }
     if (slug.includes('moody')) {
@@ -34,9 +55,9 @@ export default function UxUiPage() {
       ];
     }
     return [
-      'High-contrast accessible typography',
-      'Safety confirmation on critical doses',
-      'Dual interface for seniors and family caregivers'
+      'Universal care model with in-app typography scaling for older adults',
+      'Dual care spaces: "For myself" (Mint #C4F5E1) & "For someone I love" (Lilac #E8DDFE)',
+      '40+ screen interactive Figma prototype with deep edge-case governance'
     ];
   };
 
@@ -44,34 +65,46 @@ export default function UxUiPage() {
     {
       step: '01',
       title: { en: 'User Research', fr: 'Recherche Utilisateur' },
+      subtitle: { en: 'Discovery & Empathy', fr: 'Découverte & Empathie' },
       desc: {
-        en: 'Talking to users to understand real pain points, daily habits, and workflow friction.',
-        fr: 'Échanger avec les utilisateurs pour comprendre les vrais besoins et points de friction.'
-      }
+        en: 'Talking directly to users to understand real pain points, daily friction, and underlying emotional habits.',
+        fr: 'Échanger avec les utilisateurs pour comprendre les vrais besoins, habitudes et points de friction.'
+      },
+      deliverable: { en: 'Personas & Friction Map', fr: 'Personas & Cartographie' },
+      icon: Users
     },
     {
       step: '02',
       title: { en: 'Information Flow', fr: 'Architecture des Flux' },
+      subtitle: { en: 'Structure & Logic', fr: 'Structure & Logique' },
       desc: {
-        en: 'Structuring simple task flows and clear hierarchies so navigation feels effortless.',
-        fr: 'Structurer des parcours simples et une hiérarchie claire pour une navigation fluide.'
-      }
+        en: 'Structuring simple task flows, navigational clarity, and edge-case branching so actions feel effortless.',
+        fr: 'Structurer des parcours simples, une hiérarchie claire et des scénarios alternatifs sans friction.'
+      },
+      deliverable: { en: 'Task Flows & Wireframes', fr: 'Parcours Tâches & Wireframes' },
+      icon: Workflow
     },
     {
       step: '03',
       title: { en: 'Figma Systems', fr: 'Systèmes Figma' },
+      subtitle: { en: 'Scalable Foundations', fr: 'Fondations Évolutives' },
       desc: {
-        en: 'Building scalable component libraries, accessible contrast, and clean layout grids.',
-        fr: 'Créer des composants modulaires, un contraste accessible et des grilles propres.'
-      }
+        en: 'Crafting production-ready component libraries, WCAG AA contrast tokens, auto-layout, and clean spatial grids.',
+        fr: 'Créer des composants modulaires, un contraste accessible WCAG et des grilles propres.'
+      },
+      deliverable: { en: 'Tokens & Reusable Components', fr: 'Tokens & Composants Modulaires' },
+      icon: Layers
     },
     {
       step: '04',
       title: { en: 'Prototypes & Testing', fr: 'Prototypes & Tests' },
+      subtitle: { en: 'Usability Validation', fr: 'Validation Ergonomique' },
       desc: {
-        en: 'Creating clickable prototypes to test usability, get feedback, and refine before code.',
+        en: 'Building high-fidelity interactive prototypes to validate ergonomics, gather feedback, and refine before code.',
         fr: 'Créer des prototypes interactifs pour tester l’ergonomie et peaufiner avant le code.'
-      }
+      },
+      deliverable: { en: 'Interactive Figma Prototype', fr: 'Prototype Interactif Figma' },
+      icon: PlayCircle
     }
   ];
 
@@ -83,7 +116,7 @@ export default function UxUiPage() {
           <div className="flex items-center gap-2 mb-4">
             <span className="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
             <span className="text-xs font-semibold tracking-wider text-blue-600 uppercase">
-              Discipline 02 • UX UI & App Design
+              Discipline 01 • UX UI & App Design
             </span>
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold text-stone-900 tracking-tight mb-6">
@@ -91,281 +124,270 @@ export default function UxUiPage() {
           </h1>
           <p className="text-stone-600 text-lg md:text-xl max-w-3xl leading-relaxed mb-8">
             {locale === 'en'
-              ? 'Designing clear, accessible interfaces for apps and websites — tested with real users and ready to build.'
-              : 'Concevoir des interfaces claires et accessibles pour applications et sites web — testées avec de vrais utilisateurs et prêtes à développer.'}
+              ? 'Designing clear, accessible interfaces for apps and websites, tested with real users and ready to build.'
+              : 'Concevoir des interfaces claires et accessibles pour applications et sites web, testées avec de vrais utilisateurs et prêtes à développer.'}
           </p>
-          <div className="flex flex-wrap items-center gap-2.5 text-xs font-medium text-stone-600">
-            <span className="px-3.5 py-1.5 bg-white border border-stone-200 rounded-full shadow-2xs">
-              Mobile & Web UX
-            </span>
-            <span className="px-3.5 py-1.5 bg-white border border-stone-200 rounded-full shadow-2xs">
-              Figma Design Systems
-            </span>
-            <span className="px-3.5 py-1.5 bg-white border border-stone-200 rounded-full shadow-2xs">
-              WCAG AA Accessibility
-            </span>
-            <span className="px-3.5 py-1.5 bg-white border border-stone-200 rounded-full shadow-2xs">
-              Interactive Micro-Interactions
-            </span>
-            <a
-              href="#ux-design-systems-section"
-              className="px-3.5 py-1.5 bg-blue-50 text-blue-900 border border-blue-200/90 rounded-full shadow-2xs hover:bg-blue-100 transition-colors flex items-center gap-1.5 font-semibold"
-            >
-              <Sliders className="w-3.5 h-3.5 text-blue-600" />
-              <span>Design Systems & Tokens</span>
-            </a>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium text-stone-600 font-mono">
+            <span>Mobile & Web UX</span>
+            <span className="text-stone-300">·</span>
+            <span>Figma Design Systems</span>
+            <span className="text-stone-300">·</span>
+            <span>WCAG AA Accessibility</span>
+            <span className="text-stone-300">·</span>
+            <span>Micro-Interactions</span>
           </div>
         </div>
       </section>
 
       {/* Case Studies Showcase */}
       <section className="py-20 px-6 md:px-12 max-w-7xl mx-auto border-b border-stone-200/70">
-        <div className="mb-12">
-          <div className="flex items-center gap-2 mb-2">
-            <Smartphone className="w-4 h-4 text-blue-600" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-stone-500">
-              Product Case Studies
-            </span>
+        <div className="mb-12 space-y-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-blue-700 text-xs font-mono font-bold uppercase tracking-wider shadow-2xs">
+            <Smartphone className="w-3.5 h-3.5 text-blue-600" />
+            <span>Product Case Studies</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-semibold text-stone-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-stone-900 tracking-tight">
             Research & Interactive Prototypes
           </h2>
-          <p className="text-stone-600 text-sm md:text-base mt-2 max-w-2xl leading-relaxed">
-            Case studies solving healthcare, pediatric, and behavioral challenges through human-centered design.
+          <p className="text-base sm:text-lg text-stone-600 max-w-2xl leading-relaxed font-sans">
+            {locale === 'fr'
+              ? 'Études de cas approfondies résolvant des défis de santé, pédiatrie et mobilité par le design centré utilisateur.'
+              : 'Case studies solving healthcare, pediatric, and behavioral challenges through human-centered design.'}
           </p>
         </div>
 
-        <div className="space-y-12">
+        {/* 3 Case Study Cards - Clean, Spacious & Unified */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {appProjects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 24 }}
+              id={project.slug.includes('carepill') ? 'carepill' : undefined}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="bg-white border border-stone-200/90 hover:border-stone-300 rounded-2xl p-7 md:p-10 transition-all duration-300 hover:shadow-lg"
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              onClick={() => navigate(`/projects/${project.slug}`)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  navigate(`/projects/${project.slug}`);
+                }
+              }}
+              tabIndex={0}
+              role="link"
+              aria-label={`${project.title[locale]} - Explore Case Study`}
+              className="group relative p-6 sm:p-7 bg-white rounded-2xl border border-stone-200/90 shadow-2xs hover:shadow-xl hover:border-blue-400 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between scroll-mt-24 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500/50"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="space-y-4">
                 {/* Visual Preview */}
-                <div className="lg:col-span-6">
-                  <div className="relative group overflow-hidden rounded-xl bg-stone-100 border border-stone-200/80 aspect-[16/10] flex items-center justify-center p-2">
-                    <img
-                      src={project.imageUrl}
-                      alt={project.title[locale]}
-                      className="w-full h-full object-cover object-top rounded drop-shadow-sm group-hover:scale-103 transition-transform duration-500"
-                    />
-                    
-                    {/* Prototype quick launch trigger */}
-                    {project.liveUrl && (
-                      <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/25 transition-colors flex items-center justify-center">
-                        <button
-                          onClick={() => setSelectedDemo(project.slug)}
-                          className="opacity-0 group-hover:opacity-100 transition-opacity px-5 py-2.5 rounded-full bg-white text-stone-900 text-xs font-semibold flex items-center gap-2 shadow-lg"
-                        >
-                          <Play className="w-3.5 h-3.5 fill-current text-blue-600" />
-                          <span>Preview Prototype</span>
-                        </button>
-                      </div>
-                    )}
-                  </div>
+                <div className="relative overflow-hidden rounded-xl bg-stone-50 border border-stone-200/80 aspect-[16/10] flex items-center justify-center">
+                  <img
+                    src={project.imageUrl}
+                    alt={project.title[locale]}
+                    className="w-full h-full object-cover object-top group-hover:scale-103 transition-transform duration-500"
+                  />
                 </div>
 
-                {/* Case Study Details */}
-                <div className="lg:col-span-6 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">
-                        Product Case 0{index + 1}
-                      </span>
-                      <span className="text-stone-300">•</span>
-                      <span className="text-xs uppercase tracking-wider text-stone-500 font-medium">
-                        {project.category[locale]}
-                      </span>
+                {/* Header Row: Case Index & Category */}
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-xs font-mono font-bold text-stone-600 group-hover:text-blue-600 transition-colors bg-stone-100/70 group-hover:bg-blue-50 px-2.5 py-1 rounded-full border border-stone-200/60 group-hover:border-blue-200">
+                    CASE 0{index + 1}
+                  </span>
+                  <span className="text-xs font-mono text-stone-500 truncate max-w-[180px]">
+                    {project.category[locale]}
+                  </span>
+                </div>
+
+                {/* Titles & Description */}
+                <div className="space-y-1.5">
+                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-stone-900 group-hover:text-blue-600 transition-colors tracking-tight">
+                    {project.title[locale]}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                    {project.description[locale]}
+                  </p>
+                </div>
+
+                {/* Key Deliverables & Focus - Clean & Readable */}
+                <div className="space-y-2 pt-2">
+                  {getProjectHighlights(project.slug).slice(0, 3).map((highlight, hIdx) => (
+                    <div key={hIdx} className="flex items-center gap-2 text-xs text-stone-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+                      <span className="truncate">{highlight}</span>
                     </div>
+                  ))}
+                </div>
 
-                    <h3 className="text-2xl md:text-3xl font-semibold text-stone-900 tracking-tight mb-2">
-                      {project.title[locale]}
-                    </h3>
-                    <p className="text-stone-600 text-sm md:text-base leading-relaxed mb-6">
-                      {project.description[locale]}
-                    </p>
-
-                    {/* Key Highlights */}
-                    <div className="space-y-2.5 mb-6 p-4 rounded-xl bg-stone-50 border border-stone-200/70">
-                      {getProjectHighlights(project.slug).map((highlight, hIdx) => (
-                        <div key={hIdx} className="flex items-center gap-2.5 text-xs text-stone-700">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                          <span>{highlight}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2.5 py-1 text-xs font-medium rounded-md border border-stone-200 text-stone-700 bg-stone-50"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex flex-wrap items-center gap-3">
-                      <Link
-                        to={`/projects/${project.slug}`}
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-600 text-white text-xs font-semibold uppercase tracking-wider hover:bg-orange-500 transition-all shadow-md active:scale-95"
-                      >
-                        <span>Read Case Study</span>
-                        <ArrowUpRight className="w-3.5 h-3.5" />
-                      </Link>
-
-                      <a
-                        href="#ux-design-systems-section"
-                        onClick={() => {
-                          if (project.slug.includes('carepill')) setActiveDesignSystemId('carepill');
-                          else if (project.slug.includes('moody')) setActiveDesignSystemId('moody-child');
-                          else if (project.slug.includes('survive')) setActiveDesignSystemId('survive-til-five');
-                        }}
-                        className="inline-flex items-center gap-1.5 px-5 py-3 rounded-full bg-stone-100 hover:bg-stone-200/80 text-stone-800 text-xs font-semibold uppercase tracking-wider transition-colors border border-stone-200"
-                      >
-                        <Sliders className="w-3.5 h-3.5 text-blue-600" />
-                        <span>Design System</span>
-                      </a>
-
-                      {project.liveUrl && (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-stone-300 text-stone-700 text-xs font-medium uppercase tracking-wider hover:border-stone-900 transition-colors"
-                        >
-                          <span>Open Live / Prototype</span>
-                          <ArrowUpRight className="w-3.5 h-3.5" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {project.tags.slice(0, 3).map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2.5 py-0.5 text-[11px] font-mono font-medium rounded-md border border-stone-200/80 text-stone-600 bg-stone-50"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
 
-      {/* Product Design Systems & Component Governance (Back-of-House Architecture) */}
-      <section className="px-6 md:px-12 max-w-7xl mx-auto">
-        <UxProductDesignSystems
-          activeSystemId={activeDesignSystemId}
-          onSelectSystem={(id) => setActiveDesignSystemId(id)}
-        />
-      </section>
+              {/* Bottom Action Row */}
+              <div className="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between">
+                <span className="inline-flex items-center gap-1.5 text-xs font-semibold font-mono text-stone-900 group-hover:text-blue-600 transition-colors">
+                  <span>{locale === 'fr' ? 'Voir l’Étude de Cas' : 'Explore Case Study'}</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-stone-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all" />
+                </span>
 
-      {/* UX Design Framework */}
-      <section className="py-20 px-6 md:px-12 max-w-7xl mx-auto border-b border-stone-200/70">
-        <div className="mb-12 text-center max-w-2xl mx-auto">
-          <span className="text-xs font-semibold tracking-wider text-blue-600 uppercase block mb-2">
-            Design Methodology
-          </span>
-          <h2 className="text-2xl md:text-3xl font-semibold text-stone-900 tracking-tight mb-2">
-            Process & Architecture
-          </h2>
-          <p className="text-stone-600 text-xs md:text-sm leading-relaxed">
-            From user research and information flows to scalable Figma design systems.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {designPhases.map((phase, idx) => (
-            <div key={idx} className="p-5 bg-white border border-stone-200/80 rounded-2xl shadow-2xs hover:shadow-md transition-shadow">
-              <span className="text-lg font-bold text-blue-600 block mb-2">
-                {phase.step}
-              </span>
-              <h3 className="font-semibold text-sm text-stone-900 mb-1.5">
-                {phase.title[locale]}
-              </h3>
-              <p className="text-stone-600 text-xs leading-relaxed">
-                {phase.desc[locale]}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Prototype Modal */}
-      <AnimatePresence>
-        {selectedDemo && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/80 backdrop-blur-xs">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.96 }}
-              className="bg-white rounded-2xl p-6 max-w-3xl w-full border border-stone-200 shadow-2xl relative"
-            >
-              <div className="flex items-center justify-between pb-4 border-b border-stone-100 mb-6">
-                <div>
-                  <h4 className="text-lg font-semibold text-stone-900">Prototype Preview</h4>
-                  <p className="text-xs text-stone-500">Live UX Simulation</p>
-                </div>
-                <button
-                  onClick={() => setSelectedDemo(null)}
-                  className="p-2 rounded-full hover:bg-stone-100 text-stone-700 transition-colors"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              <div className="aspect-video bg-stone-100 rounded-xl flex items-center justify-center overflow-hidden border border-stone-200">
-                {selectedDemo.includes('carepill') && (
-                  <img
-                    src="/carepill-action.gif"
-                    alt="Carepill Demo"
-                    className="max-h-full object-contain"
-                  />
-                )}
-                {selectedDemo.includes('moody') && (
-                  <img
-                    src="/moody-child-record.png"
-                    alt="Moody Child Demo"
-                    className="max-h-full object-contain"
-                  />
-                )}
-                {selectedDemo.includes('survive') && (
-                  <img
-                    src="/survive-til-five.gif"
-                    alt="Survive 'Til Five Demo"
-                    className="max-h-full object-contain"
-                  />
-                )}
-              </div>
-
-              <div className="mt-6 flex items-center justify-between">
-                {selectedDemo.includes('survive') ? (
+                {project.liveUrl && (
                   <a
-                    href="https://survivetilfive.netlify.app/"
+                    href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-5 py-2.5 bg-orange-600 hover:bg-orange-500 text-white rounded-full text-xs font-semibold uppercase tracking-wider transition-colors inline-flex items-center gap-2 shadow-sm"
+                    onClick={(e) => e.stopPropagation()}
+                    className="relative z-10 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-700 text-[11px] font-mono font-medium transition-colors"
+                    title="Live Web Prototype"
                   >
-                    <span>Play Live Game</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span>Live App</span>
+                    <ArrowUpRight className="w-3 h-3" />
                   </a>
-                ) : (
-                  <div></div>
                 )}
-                <button
-                  onClick={() => setSelectedDemo(null)}
-                  className="px-6 py-2.5 bg-stone-900 hover:bg-stone-800 text-white rounded-full text-xs font-semibold uppercase tracking-wider transition-colors"
-                >
-                  Close Preview
-                </button>
               </div>
             </motion.div>
+          ))}
+        </div>
+
+        {/* Callout to Vibe Coding for Micro-Apps & Games - Clean & Minimal */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 p-6 sm:p-8 rounded-2xl bg-white border border-stone-200/90 shadow-2xs hover:shadow-md transition-shadow flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+        >
+          <div className="flex items-start sm:items-center gap-4">
+            <div className="w-11 h-11 rounded-xl bg-orange-50 border border-orange-200 text-orange-600 flex items-center justify-center shrink-0 shadow-2xs">
+              <Sparkles className="w-5 h-5 stroke-[2.2]" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-xs font-mono font-bold text-orange-600 uppercase tracking-wider">
+                  Discipline 03 • AI Vibe Coding
+                </span>
+              </div>
+              <h4 className="text-base sm:text-lg font-bold font-heading text-stone-900">
+                {locale === 'fr' ? 'Micro-Apps & Jeux Interactifs' : 'Interactive Micro-Apps & Games'}
+              </h4>
+              <p className="text-stone-600 text-xs sm:text-sm mt-0.5 max-w-2xl leading-relaxed font-sans">
+                {locale === 'fr'
+                  ? 'Découvrez Moody Child (journal émotionnel) et Survive \'til five (jeu arcade canvas) développés rapidement avec des workflows IA modernes.'
+                  : 'See how rapid AI vibe coding brings playable canvas games and full-stack micro-apps to life in hours.'}
+              </p>
+            </div>
           </div>
-        )}
-      </AnimatePresence>
+          <Link
+            to="/vibe-coding"
+            className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-stone-900 hover:bg-orange-600 text-white text-xs font-semibold uppercase tracking-wider transition-colors shadow-2xs"
+          >
+            <span>{locale === 'fr' ? 'Voir le Vibe Coding' : 'Explore Vibe Coding'}</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
+        </motion.div>
+      </section>
+
+
+      {/* UX Design Framework: Standout, Eye-catching yet Ultra-Clean */}
+      <section className="py-20 md:py-24 px-6 md:px-12 max-w-7xl mx-auto border-b border-stone-200/70">
+        <div className="relative rounded-3xl bg-gradient-to-b from-[#FFFDF9] via-white to-[#FDFBF7] border border-stone-200/90 p-8 sm:p-12 md:p-16 shadow-xs overflow-hidden">
+          
+          {/* Subtle Ambient Decorative Glows */}
+          <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-blue-100/40 blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-orange-100/35 blur-3xl pointer-events-none" />
+
+          {/* Section Header */}
+          <div className="relative z-10 mb-14 text-center max-w-2xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-blue-700 text-xs font-mono font-bold uppercase tracking-wider shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+              <span>Design Methodology</span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-stone-900 tracking-tight">
+              Process & Architecture
+            </h2>
+
+            <p className="text-base sm:text-lg text-stone-600 leading-relaxed font-sans">
+              {locale === 'fr'
+                ? 'De la recherche terrain aux flux d’information jusqu’aux design systems Figma modulaires et prêts pour la production.'
+                : 'From user research and information flows to scalable Figma design systems.'}
+            </p>
+          </div>
+
+          {/* 4 Connected Cards with Step Flow */}
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+            {designPhases.map((phase, idx) => {
+              const Icon = phase.icon;
+              return (
+                <div
+                  key={idx}
+                  className="group relative p-6 sm:p-7 bg-white rounded-2xl border border-stone-200/90 shadow-2xs hover:shadow-xl hover:border-blue-400 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div className="space-y-4">
+                    {/* Top Row: Icon + Phase Badge */}
+                    <div className="flex items-center justify-between">
+                      <div className="w-11 h-11 rounded-xl bg-stone-50 border border-stone-200/80 text-stone-800 flex items-center justify-center group-hover:bg-blue-50 group-hover:text-blue-600 group-hover:border-blue-200 transition-colors shadow-2xs">
+                        <Icon className="w-5 h-5 stroke-[2.2]" />
+                      </div>
+                      <span className="text-xs font-mono font-bold text-stone-600 group-hover:text-blue-600 transition-colors bg-stone-100/70 group-hover:bg-blue-50 px-2.5 py-1 rounded-full border border-stone-200/60 group-hover:border-blue-200">
+                        PHASE {phase.step}
+                      </span>
+                    </div>
+
+                    {/* Titles */}
+                    <div className="space-y-1">
+                      <h3 className="text-lg sm:text-xl font-bold font-heading text-stone-900 group-hover:text-blue-600 transition-colors">
+                        {phase.title[locale]}
+                      </h3>
+                      <span className="text-xs font-mono text-stone-600 font-medium block">
+                        {phase.subtitle[locale]}
+                      </span>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                      {phase.desc[locale]}
+                    </p>
+                  </div>
+
+                  {/* Bottom Deliverable Tag */}
+                  <div className="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between text-[11px] font-mono text-stone-600">
+                    <span className="truncate">{phase.deliverable[locale]}</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-stone-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all shrink-0 ml-1" />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Bottom Quality Pillars Strip */}
+          <div className="relative z-10 mt-12 pt-6 border-t border-stone-200/60 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs font-mono text-stone-600 text-center">
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              Human-Centered & Evidence-Based
+            </span>
+            <span className="hidden sm:inline text-stone-300">•</span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+              Figma Variables & Auto-Layout
+            </span>
+            <span className="hidden sm:inline text-stone-300">•</span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-purple-500"></span>
+              WCAG AA Accessibility Ready
+            </span>
+          </div>
+
+        </div>
+      </section>
+
+
 
       {/* CTA Section */}
       <section className="py-20 px-6 md:px-12 max-w-7xl mx-auto text-center">

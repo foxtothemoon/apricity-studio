@@ -3,245 +3,332 @@ import { Project, WebClientSite, GraphicDesignItem, OnlineMarketingStrategy, Mar
 export const projects: Project[] = [
   {
     id: "01",
-    slug: "moody-child",
+    slug: "carepill-medication-tracker",
     title: {
-      en: "Moody Child - Mood tracker",
-      fr: "Moody Child - Suivi d'Humeur"
+      en: "CarePill: A Kinder Way to Care",
+      fr: "CarePill : Un Soin Bienveillant"
     },
     category: {
-      en: "Mobile Web App",
-      fr: "Application Web Mobile"
+      en: "Universal UX/UI & Health Adherence",
+      fr: "UX/UI Universelle & Suivi Santé"
     },
     categoryType: "app",
     description: {
-      en: "A highly responsive, mobile-first micro-journaling application bridging emotional check-ins with expressive visual art.",
-      fr: "Une application de micro-journalisation mobile-first hautement réactive, reliant les bilans émotionnels à l'art visuel expressif."
+      en: "A universal medication and care system designed for everyone, with thoughtful senior accommodations including in-app typography scaling, distinct caregiver circles, and intentional pastel color roles.",
+      fr: "Un système universel de suivi de santé conçu pour tous avec une accessibilité pensée pour les aînés, incluant l'ajustement dynamique des polices, des espaces de soutien dédiés et des rôles de couleur pastels apaisants."
     },
-    imageUrl: "/moody-child-home.png",
-    images: ["/moody-child-home.png", "/moody-child-record.png"],
-    liveUrl: "https://moodychild.netlify.app/",
-    tags: ["Frontend", "Neo-Brutalism", "SVG", "Mobile-First", "AI Workflow", "Deployment"],
+    imageUrl: "/assets/aistudio/00___CarePill_87abe415.png",
+    liveUrl: "https://carepillmedicationreminder.netlify.app/",
+    figmaUrl: "https://www.figma.com/design/ASCy7gbGRwFXKBverOxev7/CarePill-%E2%80%94-Design-System---Portfolio?node-id=4-3&t=R0SNPguKBWnRGXJl-1",
+    images: [
+      "/assets/aistudio/00___CarePill_87abe415.png",
+      "/assets/aistudio/02___Color___role_71f20287.png",
+      "/assets/aistudio/04___Case_study_8fdd29c2.png",
+      "/assets/aistudio/06___States___review_c5b61f1b.png",
+      "/assets/aistudio/Screenshot_2026-10-28_114929_f77479ee.png",
+      "/carepill-action.gif"
+    ],
+    tags: ["Universal UX/UI", "Scalable Typography", "Figma Design System", "Elder-Accommodating", "Edge Case States", "React"],
     details: {
       overview: {
-        en: "MoodyChild is a highly responsive, mobile-first micro-journaling application designed specifically to bridge the gap between emotional check-ins and expressive visual art. Styled after early 2000s collage zines and vintage collectible sticker packs, it turns the routine task of mental health logging into a tactile, satisfying hobby.",
-        fr: "MoodyChild est une application de micro-journalisation mobile-first conçue pour combler le fossé entre les bilans émotionnels et l'art visuel expressif. Inspirée des fanzines de collage du début des années 2000 et des packs d'autocollants de collection, elle transforme la tâche routinière du journal de santé mentale en un passe-temps tactile et satisfaisant."
+        en: "CarePill is a universal medication tracking and caregiver synchronization application built on the principle: 'Small moments. A kinder way to care.' Rather than isolating seniors in a separate niche tool, CarePill serves anyone managing daily medications while enabling trusted caregivers (including family members, a personal doctor, or a home nurse) to monitor adherence respectfully through consent-based circles, senior-friendly scalable typography, and non-punitive feedback.",
+        fr: "CarePill est une application universelle de suivi de médicaments et de synchronisation des proches fondée sur le principe : « De petits moments. Une manière plus bienveillante de prendre soin. » Elle permet un suivi à distance respectueux par des soignants et proches de confiance (famille, médecin traitant ou infirmier), tout en intégrant une ergonomie pour les aînés avec ajustement typographique et cibles tactiles de 48px."
       },
       problemStatement: {
-        en: "Traditional mental health journaling tools are often exhausting, clinical, and raise privacy concerns, preventing young users from building consistent habits.",
-        fr: "Les outils traditionnels de journalisation de la santé mentale sont souvent épuisants, cliniques et soulèvent des problèmes de confidentialité, empêchant les jeunes utilisateurs de prendre des habitudes cohérentes."
+        en: "Daily medication care involves high cognitive overhead. Conflating the person taking medication with the family member or medical provider supporting them leads to confusing interfaces. Furthermore, most clinical healthcare apps feature rigid, unscalable fonts and lack respectful remote monitoring for family, doctors, or nurses.",
+        fr: "La gestion quotidienne des traitements engendre une charge mentale élevée. Mélanger les rôles du patient et des proches aidants ou soignants crée des interfaces confuses. De plus, la plupart des applications manquent d'un suivi à distance digne et bienveillant pour la famille, le médecin traitant ou l'infirmier."
       },
       painPoints: {
         en: [
-          "\"Journaling is exhausting.\" Traditional journaling apps require paragraphs of text. Users suffer from cognitive overhead at the end of a tiring day.",
-          "\"Clinical and cold layouts.\" Many apps look like hospital utilities or sterile corporate templates, isolating young users.",
-          "\"Data privacy concerns.\" Users are uncomfortable storing confidential, personal thoughts on vulnerable web databases."
+          "Fixed small typography creates severe eye fatigue for older adults and individuals with visual impairments.",
+          "Role confusion: Patients and family caregivers have entirely different jobs-to-be-done, but traditional apps mix them onto one cluttered dashboard.",
+          "Punitive guilt: Red flashing warnings assume bad behavior, whereas missed logs often stem from memory lapses or offline moments.",
+          "Complex scheduling: Alternating days, custom weekdays, and multi-dose intervals are typically hidden behind nested menus."
         ],
         fr: [
-          "\"Tenir un journal est épuisant.\" Les applications traditionnelles nécessitent des paragraphes de texte, créant une surcharge cognitive à la fin d'une journée.",
-          "\"Mises en page cliniques et froides.\" De nombreuses applications ressemblent à des utilitaires d'hôpitaux, isolant les jeunes utilisateurs.",
-          "\"Problèmes de confidentialité.\" Les utilisateurs ne sont pas à l'aise de stocker des pensées personnelles sur des bases de données web vulnérables."
+          "Typographies rigides provoquant une fatigue visuelle aiguë chez les aînés ou personnes malvoyantes.",
+          "Confusion des rôles : Le patient et le proche aidant ont des besoins opposés mais sont souvent réunis sur un tableau de bord encombré.",
+          "Culpabilisation punitive : Les alertes rouges agressives créent du stress au lieu d'encourager.",
+          "Gestion des horaires complexe : Les prises un jour sur deux ou jours personnalisés sont souvent enfouies dans des sous-menus."
         ]
       },
       goals: {
         en: [
-          "Log in 2 Taps (Hick's Law): Minimizing decision-making options.",
-          "Collectible Y2K Collage Visuals (Aesthetic-Usability Effect).",
-          "Zero-Server Client-Side Sandboxing (Edge Storage & User Trust)."
+          "Universal Inclusivity: Build a clean, modern experience that anyone can enjoy, with built-in text scaling tailored for seniors.",
+          "Role Separation: Distinct spaces for 'For myself' (Mint #C4F5E1) and 'For someone I love' (Lilac #E8DDFE) with mutual consent circles.",
+          "Intentional Color with a Clear Job: Soft pastel status tokens (Taken Mint, Upcoming Soft Yellow #FFF0AC, Missed Soft Coral #FFBFC7).",
+          "Comprehensive Edge Cases: Thoughtful empty states, permission revocations, and multilingual typography (LINE Seed Sans TH)."
         ],
         fr: [
-          "Connexion en 2 clics (Loi de Hick) : Minimiser les options de décision.",
-          "Visuels de collage Y2K à collectionner (Effet esthétique-utilisabilité).",
-          "Bacs à sable client sans serveur (Stockage Edge et confiance)."
+          "Inclusivité universelle : Une expérience moderne pour tous avec ajustement d'échelle typographique pour les aînés.",
+          "Séparation claire des rôles : Espaces dédiés « Pour moi-même » (Menthe #C4F5E1) et « Pour un proche » (Lilas #E8DDFE).",
+          "Couleurs sémantiques ciblées : Jetons pastels apaisants (Pris Menthe, À venir Jaune doux #FFF0AC, Non enregistré Corail #FFBFC7).",
+          "Gestion poussée des cas limites : États vides travaillés, révocation de consentement et typographie multilingue (LINE Seed Sans TH)."
         ]
       },
       userPersona: {
-        en: "Gen-Z users seeking a fun, tactile, and private way to log their mental health without the cognitive overhead of traditional journaling.",
-        fr: "Utilisateurs de la génération Z à la recherche d'un moyen amusant, tactile et privé d'enregistrer leur santé mentale sans la surcharge cognitive."
+        en: "1. The Self-Care User: Any adult managing daily prescriptions or vitamins seeking an effortless, calming log. 2. The Older Adult (Elder-Accommodated): Benefits from one-tap larger typography, high contrast, and gentle microcopy. 3. The Supportive Caregiver: A family member connected via QR/Care ID receiving respectful status context without intrusive surveillance.",
+        fr: "1. L'utilisateur autonome : Toute personne gérant ses vitamines ou ordonnances en quête de sérénité. 2. L'aîné (inclusivité seniors) : Bénéficie d'une typographie agrandie en un clic et de contrastes élevés. 3. Le proche aidant : Connecté via QR/Care ID pour suivre la situation avec bienveillance et consentement."
       },
       ideation: {
-        en: "Aesthetic: Cyber Y2K, Neo-Brutalism, and Soft Grunge. High-contrast borders, tactile drop shadows. Tone: Sassy but supportive. Speaks running Gen-Z lingo with bilingual flexibility.",
-        fr: "Esthétique : Cyber Y2K, Néo-Brutalisme et Soft Grunge. Bordures contrastées, ombres tactiles. Ton : Impertinent mais solidaire. Parle l'argot Gen-Z avec une flexibilité bilingue."
+        en: "Synthesized into 5 architectural pillars from the Figma study: 01 Role clarity (QR onboarding & Care ID), 02 Restrained color (role cue preserved in bottom navigation rather than overwhelming tints), 03 Information hierarchy (horizontal person identity & clean permission cards), 04 Gentle but explicit actions (2-second dismissal feedback), and 05 Realistic scheduling (collapsed custom weekdays).",
+        fr: "Synthétisé en 5 piliers issus de l'étude Figma : 01 Clarté des rôles (onboarding QR & Care ID), 02 Couleur maîtrisée (repère dans la barre de navigation), 03 Hiérarchie de l'information (cartes personnes horizontales), 04 Actions douces mais explicites (confirmation de 2s), 05 Planification réaliste (jours personnalisés repliables)."
       },
       uiDesign: {
-        en: "Deep Charcoal Canvas frames vivid neon elements. Holographic Borders with 4px offset card shadows simulate cardboard paper cutouts. Custom-coded SVG sticker badges feature glowing gradients. Interactive transitions use custom cubic-bezier spring strings.",
-        fr: "Toile anthracite encadrant des éléments néon vifs. Bordures holographiques avec ombres décalées de 4px simulant des découpes de carton. Badges d'autocollants SVG personnalisés. Les transitions interactives utilisent des ressorts cubiques de Bézier."
+        en: "• Semantic Color Tokens: Caretaker Mint (#C4F5E1, Ink #125943), Caregiver Lilac (#E8DDFE, Ink #61458C), Primary Action Warm Pink (#FF9AB4).\n• Respectful State Philosophy: Yellow (#FFF0AC) for upcoming waiting doses; Soft Coral (#FFBFC7) for missed logs ('An unrecorded dose is not proof a person did not take it').\n• In-App Text Scaling: Standard vs. Larger text mode for elderly comfort without UI clipping.\n• Typographic Foundations: Dual English/Thai support using LINE Seed Sans TH and crisp neutral ink (#202C37).",
+        fr: "• Tokens de couleur sémantiques : Espace personnel Menthe (#C4F5E1), Espace aidant Lilas (#E8DDFE), Action principale Rose chaleureux (#FF9AB4).\n• Philosophie respectueuse des états : Jaune doux (#FFF0AC) pour l'attente, Corail doux (#FFBFC7) pour les doses non enregistrées sans jugement.\n• Échelle de texte adaptable : Mode standard et mode texte agrandi pour les aînés.\n• Typographie multilingue : Prise en charge EN/TH avec LINE Seed Sans TH et encre neutre (#202C37)."
+      },
+      coreFeatures: {
+        en: "• In-App Typography Scaling: Instant toggle between Standard and Larger text sizing to ensure effortless reading for older adults.\n• Dual Role Spaces: 'For myself' and 'For someone I love' with independent bottom navigations and switch destinations.\n• Friction for Safety: Confirmation sheets with gentle wording that dismiss after 2 seconds to avoid accidental taps.\n• Edge-Case Governance: Complete coverage of empty circles, pending consent, revoked access, and offline states.\n• 40+ Screen Figma Interactive Prototype: Fully wired flow covering onboarding, dose logging, scheduling, and people settings.",
+        fr: "• Échelle de texte personnalisable : Bascule immédiate entre taille standard et agrandie pour le confort des aînés.\n• Espaces à double rôle : « Pour moi-même » et « Pour un proche » avec navigations dédiées.\n• Sécurité bienveillante : Feuilles de confirmation douces avec fermeture automatique en 2 secondes.\n• Gestion des cas limites : Cercles vides, consentements en attente et révocation d'accès.\n• Prototype interactif Figma de 40+ écrans : Flux complet d'onboarding, de prise de traitement et de gestion des contacts."
+      },
+      technicalHighlights: {
+        en: "• Engineered in Figma with strict reusable component instances, vector artwork, and named screens.\n• Linked prototype reactions with interactive modals and multi-path branching.\n• Fully synchronized to React, TypeScript, and Tailwind CSS on Netlify.\n• Production-ready dark mode tokens and multilingual layout flexibility.",
+        fr: "• Développé sur Figma avec composants modulaires réutilisables, tracés vectoriels et écrans structurés.\n• Réactions de prototype interactives avec embranchements multiples.\n• Synchronisé vers React, TypeScript et Tailwind CSS déployé sur Netlify.\n• Tokens pour mode sombre et adaptabilité multilingue."
       },
       aiWorkflow: {
-        en: "Leveraged Claude and Google AI Studio to accelerate the design and development process. The AI tools assisted in generating boilerplate code, refining the Neo-Brutalism CSS framework, and structuring the component logic. The codebase is version-controlled via GitHub and deployed continuously to Netlify, enabling rapid prototyping and seamless testing.",
-        fr: "Utilisation de Claude et de Google AI Studio pour accélérer le processus de conception et de développement. Les outils d'IA ont aidé à générer du code de base, à affiner le framework CSS Néo-Brutalisme et à structurer la logique des composants. Le code source est contrôlé en version via GitHub et déployé en continu sur Netlify, permettant un prototypage rapide et des tests fluides."
+        en: "Rapid AI-assisted code translation from Figma tokens to clean TypeScript and Tailwind components, enabling live user testing of interactions like dose logging and typography scaling on mobile devices.",
+        fr: "Traduction accélérée par IA des tokens Figma vers du code TypeScript et Tailwind propre pour tester immédiatement sur mobile les flux de prise et d'agrandissement de texte."
       },
       outcome: {
-        en: "Engineered with absolute modularity and performance. Procedural SVGs ensure instant loading. Offline-First & Smart Re-hydration provides a rich mock-log dataset for new testers without server dependencies.",
-        fr: "Conçu avec une modularité et des performances absolues. Les SVG procéduraux garantissent un chargement instantané. Offline-First & Smart Re-hydration fournit un ensemble de données factices sans dépendances au serveur."
+        en: "A comprehensive, production-grade UX case study and working prototype that reframes healthcare tracking from stressful clinical management into an empathetic, universally accessible ritual suitable for all ages.",
+        fr: "Une étude de cas UX approfondie et un prototype fonctionnel qui transforment le suivi médical en un rituel bienveillant, accessible et adapté à tous les âges."
       }
     }
   },
   {
     id: "02",
+    slug: "moody-child",
+    title: {
+      en: "Moody Child: Mood Tracker & Micro-Journal",
+      fr: "Moody Child : Suivi d'Humeur & Micro-Journal"
+    },
+    category: {
+      en: "Vibe Coding • Micro-App",
+      fr: "Vibe Coding • Micro-App"
+    },
+    categoryType: "vibe_coding",
+    description: {
+      en: "A highly responsive, mobile-first micro-journaling app bridging emotional check-ins with expressive Neo-Brutalist art, built rapidly via full-stack AI vibe coding.",
+      fr: "Une application de micro-journalisation mobile-first hautement réactive alliant bilans émotionnels et art Néo-Brutaliste expressif, développée rapidement par vibe coding assisté par IA."
+    },
+    imageUrl: "/moody-child-home.png",
+    images: ["/moody-child-home.png", "/moody-child-record.png"],
+    liveUrl: "https://moodychild.netlify.app/",
+    tags: ["Vibe Coding", "Prompt Architecture", "Claude & AI Studio", "Neo-Brutalism", "Procedural SVG", "Local Edge Sandbox", "Netlify Continuous Deploy"],
+    details: {
+      overview: {
+        en: "Moody Child is a production-ready mobile micro-journal created through AI vibe coding. By combining human emotional UX rationale with conversational AI steering (Claude 3.7 Sonnet & Google AI Studio), the entire application — from dynamic SVG sticker generators to client-side encrypted local storage — was architected and deployed in rapid sprint cycles.",
+        fr: "Moody Child est un micro-journal mobile prêt pour la production conçu par vibe coding assisté par IA. En combinant l'intuition UX humaine avec le pilotage d'IA conversationnelle (Claude 3.7 Sonnet & Google AI Studio), l'application entière — des générateurs de stickers SVG au stockage local chiffré — a été orchestrée et déployée en cycles de sprint accélérés."
+      },
+      problemStatement: {
+        en: "Traditional journaling apps suffer from extreme friction: demanding long paragraphs, clinical corporate UI, and questionable cloud privacy. Moody Child solves this with a 2-tap micro-logging paradigm and 100% private zero-server architecture.",
+        fr: "Les applications traditionnelles imposent une friction excessive : longs paragraphes, design clinique impersonnel et doutes sur la confidentialité. Moody Child résout cela via un paradigme de saisie en 2 clics et une architecture zéro serveur 100% privée."
+      },
+      painPoints: {
+        en: [
+          "Cognitive fatigue: Writing paragraphs at the end of an exhausting day leads to user abandonment.",
+          "Sterile medical design: Clinical hospital-like aesthetics alienate younger demographics.",
+          "Data vulnerability: Sensitive emotional musings should never sit on vulnerable third-party databases."
+        ],
+        fr: [
+          "Fatigue cognitive : Rédiger de longs bilans en fin de journée entraîne l'abandon rapide de l'application.",
+          "Design clinique stérile : Les esthétiques hospitalières démotivent les jeunes générations.",
+          "Vulnérabilité des données : Les réflexions émotionnelles intimes ne doivent pas être exposées en ligne."
+        ]
+      },
+      goals: {
+        en: [
+          "2-Tap Rapid Logging (Hick's Law): Reduce daily decision overhead to near zero.",
+          "Tactile Cyber-Y2K Aesthetics (Aesthetic-Usability Effect): Make daily reflection feel like collecting sticker zines.",
+          "Zero-Server Edge Sandboxing: Total user privacy with instant client hydration."
+        ],
+        fr: [
+          "Saisie en 2 clics (Loi de Hick) : Réduire la charge décisionnelle quotidienne à zéro.",
+          "Esthétique Cyber-Y2K tactile : Transformer l'introspection en collection d'autocollants gratifiante.",
+          "Bac à sable Edge sans serveur : Confidentialité absolue des données stockées localement."
+        ]
+      },
+      userPersona: {
+        en: "Gen-Z & young professionals seeking an honest, delightfully tactile, and completely private check-in without cognitive baggage.",
+        fr: "Jeunes actifs et génération Z en quête d'un outil d'expression intime, tactile et strictement confidentiel sans contrainte rédactionnelle."
+      },
+      ideation: {
+        en: "Neo-Brutalist collage aesthetic with 4px offset card shadows, tactile holographic borders, and bilingual slang microcopy engineered through prompt iteration.",
+        fr: "Esthétique de collage Néo-Brutaliste avec ombres portées décalées de 4px, bordures holographiques et micro-textes bilingues rythmés."
+      },
+      uiDesign: {
+        en: "High-contrast dark charcoal background framed with neon accents, custom inline SVGs that scale infinitely with zero asset weight, and spring-based tactile gestures.",
+        fr: "Toile sombre anthracite soulignée de néons vifs, SVG en ligne légers et transitions tactiles réactives calibrées avec des courbes de ressort fluides."
+      },
+      technicalHighlights: {
+        en: "• 100% Client-Side Sandboxing with encrypted LocalStorage state hydration.\n• Procedural vector sticker synthesis reducing bundle size to near zero.\n• Responsive mobile viewport lock with touch haptics simulation.",
+        fr: "• Bac à sable 100% client avec réhydratation chiffrée du LocalStorage.\n• Synthèse vectorielle procédurale réduisant le poids du bundle au minimum.\n• Ergonomie mobile avec simulation de retour haptique."
+      },
+      aiWorkflow: {
+        en: "Exemplifies expert Vibe Coding: I authored system prompts outlining component contracts, responsive layout constraints, and state transitions. Using Claude 3.7 and Google AI Studio, I rapidly co-generated the React logic, fine-tuned custom cubic-bezier animations, and set up continuous Netlify deployment hooks from GitHub in record time.",
+        fr: "Exemple concret de maîtrise du Vibe Coding : j'ai rédigé les invites d'architecture définissant les contrats de composants, les contraintes réactives et la gestion d'état. Avec Claude 3.7 et Google AI Studio, j'ai co-généré la logique React, ajusté les animations et configuré le déploiement continu Netlify via GitHub en un temps record."
+      },
+      outcome: {
+        en: "A fully live, deployed micro-app with zero backend costs, near-instant 100 Lighthouse performance, and an addictive tactile experience praised by early testers.",
+        fr: "Une micro-application déployée en ligne sans frais de serveur, avec un score de performance Lighthouse de 100 et une expérience tactile très appréciée."
+      }
+    }
+  },
+  {
+    id: "03",
     slug: "survive-til-five",
     title: {
       en: "Survive 'til five",
       fr: "Survive 'til five"
     },
     category: {
-      en: "Web Game & UX Design",
-      fr: "Jeu Web & Design UX"
+      en: "Vibe Coding • 16-Bit Web Game",
+      fr: "Vibe Coding • Jeu Web 16-Bit"
     },
-    categoryType: "app",
+    categoryType: "vibe_coding",
     description: {
-      en: "A pixel art game designed to relieve stress for office workers by surviving the week, collecting items, and avoiding workplace obstacles.",
-      fr: "Un jeu en pixel art conçu pour soulager le stress des employés de bureau en survivant à la semaine, en collectant des objets et en évitant les obstacles au travail."
+      en: "A 16-bit retro arcade web game engineered from scratch with zero dependencies, synthesized Web Audio, and AI-bot tuned physics — crafted through high-velocity Vibe Coding.",
+      fr: "Un jeu d'arcade web 16 bits rétro conçu sans dépendances externes, avec synthèse audio Web Audio et physique équilibrée par bots IA — développé en Vibe Coding haute vélocité."
     },
     imageUrl: "/survive-til-five-home.png",
     images: ["/survive-til-five-home.png", "/survive-til-five.gif"],
     liveUrl: "https://survivetilfive.netlify.app/",
-    tags: ["Game UX", "Micro-Interactions", "HTML5 Canvas", "Vanilla JS", "Web Audio API", "Pixel Art"],
+    tags: ["Vibe Coding", "HTML5 Canvas", "Web Audio API", "Vanilla JS", "AI Bot Playtesting", "Zero Dependencies", "Procedural Pixel Art"],
     details: {
       overview: {
-        en: "SURVIVE 'TIL FIVE is a 16-bit pixel-art side-scrolling runner for web browsers, designed for office workers to play during coffee breaks. Players take the role of an office worker who must survive the workday from 8 AM to 5 PM without running out of energy.",
-        fr: "SURVIVE 'TIL FIVE est un jeu de course à défilement horizontal en pixel art 16 bits pour navigateurs web, conçu pour les employés de bureau. Les joueurs incarnent un employé qui doit survivre à la journée de travail de 8h à 17h sans épuiser son énergie."
+        en: "SURVIVE 'TIL FIVE is a 16-bit side-scrolling browser game built via rapid Vibe Coding. Developed in pure HTML5 Canvas and vanilla JavaScript with zero external frameworks or bulky audio assets, it turns office workday fatigue into an instant, nostalgic coffee-break gaming loop.",
+        fr: "SURVIVE 'TIL FIVE est un jeu d'arcade rétro en défilement horizontal conçu en Vibe Coding rapide. Développé en HTML5 Canvas et JavaScript pur sans frameworks externes ni fichiers audio lourds, il transforme le stress du bureau en une pause ludique et nostalgique de 45 secondes."
       },
       problemStatement: {
-        en: "Office workers need a game that genuinely gets office life — hazards are real office annoyances (chatty coworkers, meetings, jammed printers) and power-ups are what workers actually run on (coffee, bubble tea, naps). Rounds last just 30–55 seconds, perfect for real break time.",
-        fr: "Les employés de bureau ont besoin d'un jeu qui comprend la vie de bureau - les dangers sont de vrais ennuis (collègues bavards, réunions) et les bonus sont ce qui les fait tenir (café, siestes). Les parties durent 30 à 55 secondes, parfait pour une pause."
+        en: "Desk workers face midday burnout but lack accessible, low-friction micro-break entertainment that doesn't demand 10-minute tutorials or massive app downloads.",
+        fr: "Les travailleurs de bureau souffrent de surmenage mais manquent de distractions rapides, sans téléchargements volumineux ni tutoriels interminables."
       },
       painPoints: {
         en: [
-          "High stress levels and burnout during office hours.",
-          "Lack of quick, relatable entertainment during short work breaks.",
-          "Many web games are either too complex or require long time commitments."
+          "Office fatigue & 3 PM slump with nowhere quick to decompress.",
+          "Bloated modern web games taking dozens of seconds to load large asset bundles.",
+          "Complex gaming mechanics unsuited for quick 45-second micro-breaks."
         ],
         fr: [
-          "Niveaux de stress élevés et épuisement professionnel pendant les heures de bureau.",
-          "Manque de divertissement rapide et relatable pendant les courtes pauses de travail.",
-          "De nombreux jeux web sont soit trop complexes, soit nécessitent de longs engagements de temps."
+          "Baisse d'énergie vers 15h sans moyen rapide de décompresser.",
+          "Jeux web modernes surchargés mettant des dizaines de secondes à charger des mégaoctets d'assets.",
+          "Mécaniques complexes inadaptées à une pause café de 45 secondes."
         ]
       },
       goals: {
         en: [
-          "Provide a quick, stress-relieving gaming experience.",
-          "Create highly relatable office scenarios and obstacles.",
-          "Showcase an AI-assisted game development workflow."
+          "Zero-Tutorial Intuitive Readability: 'Happy smile = collect, angry scowl = dodge'.",
+          "Zero Asset Overhead: 100% procedural pixel drawing and synthesized Web Audio sound FX.",
+          "Automated AI Bot Balance: Headless bot simulations running thousands of playthroughs to calibrate difficulty."
         ],
         fr: [
-          "Offrir une expérience de jeu rapide et déstressante.",
-          "Créer des scénarios et des obstacles de bureau très relatables.",
-          "Présenter un flux de travail de développement de jeux assisté par l'IA."
+          "Compréhension immédiate sans tuto : 'Visage souriant = attraper, visage fâché = esquiver'.",
+          "Zéro dépendance lourde : Dessin procédural des sprites et effets sonores synthétisés par l'API Web Audio.",
+          "Équilibrage assisté par IA : Simulation automatisée de milliers de parties pour régler la courbe de difficulté."
         ]
       },
       userPersona: {
-        en: "Office workers and professionals looking for a quick, relatable, and cute distraction during their breaks to decompress and smile.",
-        fr: "Employés de bureau et professionnels à la recherche d'une distraction rapide, relatable et mignonne pendant leurs pauses pour décompresser et sourire."
+        en: "Desk employees, creatives, and programmers craving a quick, charming distraction to refresh focus between meetings.",
+        fr: "Employés de bureau, créatifs et développeurs en quête d'une courte pause ludique pour se ressourcer entre deux réunions."
       },
       ideation: {
-        en: "Brainstormed common office tropes—like sudden meetings or broken printers—and translated them into game mechanics. Decided on a retro pixel art style for nostalgic charm and simplicity.",
-        fr: "Nous avons brainstormé sur les clichés courants du bureau – comme les réunions soudaines ou les imprimantes en panne – et les avons traduits en mécaniques de jeu. Nous avons opté pour un style pixel art rétro pour son charme nostalgique et sa simplicité."
+        en: "Translated real corporate pain points (unannounced meetings, jammed printers, endless emails) into funny arcade obstacles, and desk staples (boba tea, iced espresso, naps) into power-ups.",
+        fr: "Traduction des aléas quotidiens du bureau (réunions imprévues, imprimante bloquée) en obstacles de jeu, et des carburants du bureau (café, bubble tea) en bonus d'énergie."
       },
       uiDesign: {
-        en: "• \"Happy face = grab, grumpy face = dodge\" — every item wears a kawaii smile, every hazard wears an angry scowl. New players read the screen instantly with zero tutorial.\n• Fully procedural pixel art: rounded silhouettes drawn from span maps instead of uniform boxes.\n• Cozy office backdrop with a wall clock whose hands track actual in-game time, sticky-note boards, plants, a water cooler, and window light that shifts from morning blue to golden-hour orange.",
-        fr: "• \"Visage heureux = attraper, visage grincheux = esquiver\" — chaque objet a un sourire kawaii, chaque danger a un regard renfrogné.\n• Pixel art entièrement procédural : silhouettes arrondies dessinées à partir de cartes d'envergure.\n• Décor de bureau confortable avec une horloge murale qui suit l'heure du jeu, des plantes et une lumière de fenêtre qui passe du bleu matinal à l'orange de l'heure dorée."
+        en: "• Face-gesture instant iconography: clear feedback with zero text instructions.\n• Dynamic time-of-day office backdrop shifting from morning skylight to golden hour.\n• Real-time digital clock synced with in-game progression.",
+        fr: "• Iconographie faciale intuitive : retour visuel clair sans aucun texte explicatif.\n• Arrière-plan de bureau dynamique évoluant du bleu matinal au crépuscule doré.\n• Horloge numérique en temps réel synchronisée avec l'avancement de la partie."
       },
       coreFeatures: {
-        en: "• 4 chibi characters (Marketing, Sales, HR, IT), each with 3 visual states tied to the energy bar: fresh → tired with eye bags → full zombie mode with messy hair and drool.\n• 5 themed levels (Mon–Fri) with escalating speed and hazard density: Monday's coffee rush to Friday's crunch time with an extended boss rush.\n• Energy economy: constant drain, replenished by 8 snack items, plus a Caffeine Overdrive mechanic (3 quick coffees = screen-shaking speed boost).\n• Gacha-style wardrobe with 16 collectible items. Every item renders on the character and acts as a one-hit shield.\n• Controls: jump, double jump, duck/slide — keyboard and touch supported.\n• Boss event at 4:30 PM: the boss appears wanting \"one more thing\" before you can clock out.",
-        fr: "• 4 personnages chibi (Marketing, Ventes, RH, Informatique), chacun avec 3 états visuels liés à la barre d'énergie : frais → fatigué avec des cernes → mode zombie.\n• 5 niveaux thématiques (Lun-Ven) avec une vitesse et une densité d'obstacles croissantes.\n• Économie d'énergie : drain constant, reconstitué par 8 collations, plus une mécanique de surcharge de caféine.\n• Garde-robe de style gacha avec 16 objets à collectionner agissant comme des boucliers.\n• Commandes : saut, double saut, glissade — clavier et tactile pris en charge.\n• Événement de boss à 16h30 : le patron apparaît et veut \"une dernière chose\" avant de pouvoir pointer."
+        en: "• 4 distinct chibi office professions (Marketing, Sales, HR, IT) with progressive fatigue states.\n• 5 progressive workday stages (Mon–Fri) culminating in a 4:30 PM boss sprint.\n• Synthesized Caffeine Overdrive boosting velocity with screen-shaking thrills.\n• 16-item unlockable gacha wardrobe that equips wearable shields.",
+        fr: "• 4 professions chibi (Marketing, Ventes, RH, Informatique) avec états de fatigue visuels.\n• 5 niveaux du lundi au vendredi s'achevant par l'apparition du boss à 16h30.\n• Mode Overdrive caféiné déclenchant une accélération avec tremblement d'écran.\n• Garde-robe gacha de 16 objets offrant des boucliers protecteurs."
       },
       technicalHighlights: {
-        en: "• Single-file HTML5 Canvas game in vanilla JavaScript — zero dependencies, runs instantly in any browser.\n• Sound effects synthesized live with the Web Audio API (no audio assets).\n• 960×540 landscape canvas with responsive scaling and crisp pixel rendering.\n• Balance-tested via headless bot simulation: thousands of automated playthroughs tuned the difficulty curve.\n• Automated visual QA pipeline: every screen rendered headlessly with pixel-font width emulation to catch text overflow before release.",
-        fr: "• Jeu Canvas HTML5 dans un seul fichier en JavaScript vanilla — zéro dépendance, s'exécute instantanément.\n• Effets sonores synthétisés en direct avec l'API Web Audio (aucun fichier audio).\n• Toile paysage 960x540 avec mise à l'échelle réactive et rendu de pixels net.\n• Testé en équilibre via une simulation de bot headless : des milliers de parties automatisées ont ajusté la courbe de difficulté.\n• Pipeline d'AQ visuelle automatisée : chaque écran est rendu sans interface pour détecter les débordements de texte."
+        en: "• Single-file HTML5 Canvas written in pure vanilla JavaScript — zero runtime dependencies.\n• Web Audio API sound synthesizer generating 8-bit chiptune audio procedurally without MP3 files.\n• Headless bot simulation pipeline run via AI prompts to scientifically balance obstacle timing.",
+        fr: "• Jeu Canvas HTML5 en fichier unique écrit en JavaScript pur — zéro dépendance externe.\n• Synthétiseur sonore Web Audio API générant des bruitages 8-bit de manière procédurale.\n• Simulation automatisée par scripts d'IA pour équilibrer scientifiquement la difficulté."
       },
       aiWorkflow: {
-        en: "Built iteratively across 8+ playtest-and-revise cycles using Claude and AI Studio: difficulty and pacing tuning, item readability overhaul (the face-language system), round length cut from ~2 minutes to 30–55 seconds based on player feedback, and a collectible wardrobe added for replay value.",
-        fr: "Construit de manière itérative sur plus de 8 cycles de test et de révision en utilisant Claude et AI Studio : réglage de la difficulté, refonte de la lisibilité des objets, réduction de la durée des parties et ajout d'une garde-robe à collectionner."
+        en: "The quintessential Vibe Coding journey: Prompted Claude and Google AI Studio across 8 rapid iteration loops to write the collision math, procedural sprite rendering, and sound frequencies. AI simulations were then run headlessly to compress round lengths from 2+ minutes down to the ideal 35–55 second sweet spot, followed by instant Netlify continuous deployment.",
+        fr: "Une démonstration éclatante du Vibe Coding : dialogue itératif avec Claude et Google AI Studio sur 8 cycles pour coder la géométrie des collisions, le rendu procédural des sprites et les fréquences sonores. Des simulations d'IA sans interface ont permis de calibrer la durée de partie au standard idéal de 35 à 55 secondes, avec déploiement continu immédiat sur Netlify."
       },
       outcome: {
-        en: "Fully playable free prototype with all 5 levels complete. Planned next: score system and office leaderboards, unlockable characters, and progress saving.",
-        fr: "Prototype gratuit entièrement jouable avec les 5 niveaux terminés. Prévu ensuite : système de score et classements de bureau, personnages à débloquer et sauvegarde de la progression."
+        en: "Complete, instantly playable browser game with 0KB audio asset overhead, near-zero bandwidth footprint, and thousands of enthusiastic plays.",
+        fr: "Jeu complet directement jouable dans le navigateur avec 0 Ko de fichiers sonores, une bande passante minimale et une jouabilité instantanée."
       }
     }
   },
   {
-    id: "03",
-    slug: "carepill-medication-tracker",
+    id: "04",
+    slug: "route-ev-charger",
     title: {
-      en: "Carepill",
-      fr: "Carepill"
+      en: "Route: EV Smart Charging & Route Planner",
+      fr: "Route : Recharge VE & Planificateur de Trajet"
     },
     category: {
-      en: "Mobile Web Application",
-      fr: "Application Web Mobile"
+      en: "Automotive UX & Smart Mobility",
+      fr: "UX Automobile & Mobilité Intelligente"
     },
     categoryType: "app",
     description: {
-      en: "A dual-role mobile web application designed to improve medication adherence and connect patients with their caregivers.",
-      fr: "Une application web mobile à double rôle conçue pour améliorer l'observance des médicaments et connecter les patients avec leurs soignants."
+      en: "A streamlined EV charging companion designed for effortless station discovery, real-time charger availability, smart battery trip planning, and seamless plug-and-charge payments.",
+      fr: "Une application mobile intuitive de recharge pour véhicules électriques : disponibilité des bornes en temps réel, planification intelligente des trajets et paiement sans friction."
     },
-    imageUrl: "/carepill-cover.png",
-    liveUrl: "https://carepill.netlify.app/",
-    images: [
-      "/carepill-hi-fi-figma.png",
-      "/carepill-action.gif"
-    ],
-    tags: ["UX/UI Design", "Healthcare", "Figma", "React", "TypeScript", "Tailwind CSS"],
+    imageUrl: "/route-ev-charger.jpg",
+    images: ["/route-ev-charger.jpg"],
+    tags: ["EV Mobility", "Smart Navigation", "Charging Stations", "Figma Design System", "In Development"],
     details: {
       overview: {
-        en: "Carepill is a mobile-first web application that helps users track their daily medications while allowing family members or professional caregivers to monitor their adherence remotely in real-time.",
-        fr: "Carepill est une application web mobile first qui aide les utilisateurs à suivre leurs médicaments quotidiens tout en permettant aux membres de la famille ou aux soignants professionnels de surveiller leur observance à distance en temps réel."
+        en: "Route is an upcoming smart electric vehicle (EV) charging and navigation application currently in design. It addresses range anxiety by calculating battery state-of-charge along planned routes, predicting station queues, and supporting one-tap charging activations.",
+        fr: "Route est une application de recharge et navigation pour véhicules électriques actuellement en cours de conception. Elle répond à l'anxiété liée à l'autonomie en calculant la batterie restante sur les trajets et en prédisant la disponibilité des bornes."
       },
       problemStatement: {
-        en: "Elderly patients or individuals with chronic illnesses frequently forget to take their medications or take incorrect doses. Meanwhile, their caregivers experience anxiety because they have no real-time way to know if their loved ones are following their medication schedule.",
-        fr: "Les patients âgés ou les personnes atteintes de maladies chroniques oublient fréquemment de prendre leurs médicaments ou prennent des doses incorrectes. Pendant ce temps, leurs soignants ressentent de l'anxiété car ils n'ont aucun moyen en temps réel de savoir si leurs proches suivent leur horaire de médicaments."
+        en: "EV drivers face fragmented charging networks, broken hardware with inaccurate status updates, and unpredictable station wait times.",
+        fr: "Les conducteurs de véhicules électriques font face à des réseaux de recharge morcelés, des bornes hors service mal signalées et des temps d'attente imprévisibles."
       },
       painPoints: {
         en: [
-          "Existing medication apps are often too complex, cluttered, or difficult to read for seniors.",
-          "Lack of a seamless, dedicated 'Caregiver Mode' that prioritizes remote monitoring and missed-dose alerts.",
-          "Destructive actions (like deleting a profile) happen accidentally and need strong safeguards."
+          "Fragmented charging networks requiring multiple subscriptions and RFID cards.",
+          "Phantom availability: arriving at a station marked free only to find it occupied or broken.",
+          "Inaccurate range estimations under real weather and elevation changes."
         ],
         fr: [
-          "Les applications de médicaments existantes sont souvent trop complexes, encombrées ou difficiles à lire pour les personnes âgées.",
-          "Absence d'un « mode soignant » dédié et transparent qui donne la priorité à la surveillance à distance et aux alertes de doses manquées.",
-          "Les actions destructives (comme la suppression d'un profil) se produisent accidentellement et nécessitent de solides garanties."
+          "Réseaux morcelés imposant de multiples abonnements et cartes RFID.",
+          "Disponibilité inexacte : arriver à une borne indiquée libre et la trouver occupée ou en panne.",
+          "Estimations d'autonomie imprécises sans prise en compte de la météo et du relief."
         ]
       },
       goals: {
         en: [
-          "Create a frictionless medication logging experience that encourages daily use.",
-          "Provide a simple, highly accessible interface to view and log daily medications without confusion.",
-          "Provide peace of mind through a clear dashboard that tracks the patient's schedule and sends immediate notifications for missed doses."
+          "Unified Plug-and-Charge across major public and private charging networks.",
+          "Predictive Occupancy Intelligence using crowd-sourced telemetry and live station APIs.",
+          "Clean, low-distraction driver mode with high-contrast night aesthetics."
         ],
         fr: [
-          "Créer une expérience de journalisation des médicaments sans friction qui encourage une utilisation quotidienne.",
-          "Fournir une interface simple et très accessible pour afficher et enregistrer les médicaments quotidiens sans confusion.",
-          "Offrir la tranquillité d'esprit grâce à un tableau de bord clair qui suit l'emploi du temps du patient et envoie des notifications immédiates pour les doses manquées."
+          "Paiement unifié Plug-and-Charge sur l'ensemble des réseaux de recharge.",
+          "Disponibilité prédictive basée sur la télémétrie et les API en direct.",
+          "Mode conducteur épuré à fort contraste pour limiter les distractions au volant."
         ]
       },
       userPersona: {
-        en: "The Independent Senior (Patient): Wants to stay healthy but struggles with small text and complex app navigation. The Anxious Loved One (Caregiver): A busy working adult who needs a quick, at-a-glance status of their parent's health.",
-        fr: "Le senior indépendant (patient) : souhaite rester en bonne santé mais a du mal avec les petits textes et la navigation complexe des applications. L'être cher anxieux (soignant) : un adulte actif qui a besoin d'un état rapide et en un coup d'œil de la santé de ses parents."
+        en: "EV commuters and road-trippers wanting reliable, zero-stress charging stops without downloading dozens of regional apps.",
+        fr: "Conducteurs de véhicules électriques quotidiens et voyageurs cherchant des arrêts recharge fiables sans multiplier les applications."
       },
       ideation: {
-        en: "Designed a seamless onboarding experience that immediately segments users into Patient Mode or Caregiver Mode. The information architecture was kept extremely flat (Maximum 2 clicks to reach any core feature) with a persistent Bottom Navigation Bar.",
-        fr: "Conception d'une expérience d'intégration transparente qui segmente immédiatement les utilisateurs en mode patient ou en mode soignant. L'architecture de l'information a été maintenue extrêmement plate avec une barre de navigation inférieure persistante."
+        en: "Clean dark-mode interface with cyan and emerald energy accents, emphasizing glanceability, quick station filtering by charging speed (kW), and instant reservation.",
+        fr: "Interface sombre aux accents cyan et émeraude, privilégiant la lisibilité immédiate, le filtrage rapide par puissance (kW) et la réservation instantanée."
       },
       uiDesign: {
-        en: "• Trustworthy 'Medical Blues' mixed with high-visibility 'Alert Oranges' for primary actions.\n• Clean, large sans-serif fonts with generous line spacing.\n• Built-in toggles for 'High Contrast Mode' and 'Reduce Motion'.\n• Context-aware empty states guiding caregivers to connect via ID.",
-        fr: "• 'Bleus médicaux' dignes de confiance mélangés à des 'Oranges d'alerte' à haute visibilité.\n• Polices sans empattement propres et grandes avec un espacement des lignes généreux.\n• Bascules intégrées pour le 'Mode contraste élevé' et 'Réduire les mouvements'.\n• États vides sensibles au contexte guidant les soignants."
-      },
-      coreFeatures: {
-        en: "• Dual-Role System: Distinct paths and views for Patients (focus on logging) and Caregivers (focus on status overviews).\n• Friction for Safety: Custom confirmation popup modals featuring a warning icon and distinct primary/secondary buttons to prevent accidental profile deletions.",
-        fr: "• Système à double rôle : parcours et vues distincts pour les patients (accent sur la journalisation) et les soignants (accent sur les aperçus d'état).\n• Friction pour la sécurité : fenêtres contextuelles de confirmation personnalisées avec icône d'avertissement pour éviter les suppressions accidentelles."
+        en: "High-contrast map visualization, battery SOC gauge with dynamic radius range overlays, and clear plug-type badges (CCS, CHAdeMO, Type 2).",
+        fr: "Visualisation cartographique à fort contraste, jauge de batterie avec rayon d'action dynamique et identification claire des connecteurs."
       },
       technicalHighlights: {
-        en: "• Front-end implementation using React, TypeScript, and Tailwind CSS.\n• Prioritized single-column layouts for maximum readability.\n• Implemented smooth micro-interactions like satisfying checkmark animations when a pill is taken to make health tracking feel rewarding.",
-        fr: "• Implémentation front-end à l'aide de React, TypeScript et Tailwind CSS.\n• Priorité aux dispositions à une seule colonne pour une lisibilité maximale.\n• Mise en œuvre de micro-interactions fluides comme des animations de coche satisfaisantes lorsqu'une pilule est prise."
-      },
-      aiWorkflow: {
-        en: "To bridge the gap between design and reality, I utilized AI tools to translate the Figma concepts into functional prototype code. This rapid AI prototyping allowed me to test the core interaction flow interactively, proving that the empathetic design translates beautifully into a working application.",
-        fr: "Pour combler le fossé entre la conception et la réalité, j'ai utilisé des outils d'IA pour traduire les concepts Figma en code de prototype fonctionnel. Ce prototypage rapide par l'IA m'a permis de tester le flux d'interaction de base de manière interactive."
+        en: "• Comprehensive Figma token library with automotive-grade contrast ratios.\n• Real-time map clustering and routing algorithms.\n• In-app reservation and live charging telemetry monitor.",
+        fr: "• Bibliothèque de tokens Figma avec ratios de contraste adaptés à l'automobile.\n• Algorithmes de regroupement cartographique et d'itinéraire en direct.\n• Réservation intégrée et télémétrie de charge en temps réel."
       },
       outcome: {
-        en: "Delivered a highly accessible, dual-interface application that successfully bridges the communication gap between patients and caregivers. The focus on large UI components and clear empty states significantly reduced the learning curve for elderly users.",
-        fr: "Livraison d'une application à double interface hautement accessible qui comble avec succès le déficit de communication entre les patients et les soignants. L'accent mis sur les grands composants de l'interface utilisateur a considérablement réduit la courbe d'apprentissage pour les utilisateurs âgés."
+        en: "Case study and prototype currently in active development. Coming soon to the UX/UI portfolio.",
+        fr: "Étude de cas et prototype en cours de finalisation. Bientôt disponible dans le portfolio UX/UI."
       }
     }
   }
@@ -717,7 +804,7 @@ export const marketingWorkflowSteps: MarketingWorkflowStep[] = [
       fr: "Immobilier (Ad 1) : Ciblage des groupes d'amis et familles cherchant une escapade le week-end avec spots photos instagrammables et barbecue."
     },
     appliedToLanguageCourse: {
-      en: "Language Course (Ad 2): Targeted high school and university students preparing for international university admission during school breaks ('ปิดเทอม'), plus working professionals aiming for overseas scholarships or career advancement.",
+      en: "Language Course (Ad 2): Targeted high school and university students preparing for international university admission during school breaks, plus working professionals aiming for overseas scholarships or career advancement.",
       fr: "Cours de Langue (Ad 2) : Ciblage des lycéens et étudiants préparant les admissions universitaires internationales pendant les vacances, et professionnels visant une promotion."
     }
   },
@@ -758,11 +845,11 @@ export const marketingWorkflowSteps: MarketingWorkflowStep[] = [
       }
     ],
     appliedToRealEstate: {
-      en: "Real Estate (Ad 1): Selected high-intent phrases: 'พูลวิลล่าส่วนตัว' (private pool villa), 'สระว่ายน้ำสไลเดอร์เกลียว' (spiral slide pool), 'ที่พักปาร์ตี้เตาปิ้งย่าง' (pool party BBQ), 'พูลวิลล่า 4 ห้องนอน' (4-bedroom villa).",
+      en: "Real Estate (Ad 1): Selected high-intent phrases: 'private pool villa', 'spiral slide pool', 'pool party BBQ', '4-bedroom villa'.",
       fr: "Immobilier (Ad 1) : Mots-clés sélectionnés : 'villa avec piscine privée', 'toboggan géant', 'location fête barbecue', 'villa 4 chambres'."
     },
     appliedToLanguageCourse: {
-      en: "Language Course (Ad 2): Selected specific terms: 'เรียน IELTS ตัวต่อตัว' (1-on-1 IELTS tutor), 'ติวสอบ IELTS Online' (online IELTS preparation), 'เทคนิค Reading IELTS' (IELTS Reading techniques), 'ปิดเทอมเรียนภาษา' (holiday English course).",
+      en: "Language Course (Ad 2): Selected specific terms: '1-on-1 IELTS tutor', 'online IELTS preparation', 'IELTS Reading techniques', 'holiday English course'.",
       fr: "Cours de Langue (Ad 2) : Mots-clés : 'cours IELTS particulier en ligne', 'préparation IELTS intensive', 'technique lecture IELTS', 'stage anglais vacances'."
     }
   },
@@ -803,11 +890,11 @@ export const marketingWorkflowSteps: MarketingWorkflowStep[] = [
       }
     ],
     appliedToRealEstate: {
-      en: "Real Estate (Ad 1): Copy opened with sensory details: 'พูลวิลล่าส่วนตัว พร้อมสระว่ายน้ำขนาดใหญ่ สไลเดอร์เกลียวสุดชิค บรรยากาศสบายๆ ที่พักสะอาด มุมถ่ายรูปน่ารักๆ ติดแกรมเพียบ...' emphasizing cleanliness, photo spots, and full party amenities.",
+      en: "Real Estate (Ad 1): Copy opened with sensory details: 'Private pool villa with oversized pool, iconic spiral slide, cozy atmosphere, pristine hygiene, and photogenic corners...' emphasizing cleanliness, photo spots, and full party amenities.",
       fr: "Immobilier (Ad 1) : Accroche sensorielle valorisant la propreté, la grande piscine, le toboggan, les spots photos tendance et le barbecue pour les soirées."
     },
     appliedToLanguageCourse: {
-      en: "Language Course (Ad 2): Copy leveraged seasonal urgency and prestige: 'ปิดเทอมแล้ว มาเรียน IELTS Online ตัวต่อตัวกัน! สอนโดยอาจารย์ที่จบ English Certificate จาก Harvard University, USA • 11 คลาส 24 ชั่วโมง เพียง 5,990.-' with crystal-clear syllabus breakdown.",
+      en: "Language Course (Ad 2): Copy leveraged seasonal urgency and prestige: 'School break is here! Master IELTS 1-on-1 Online with an instructor certified with an English Certificate from Harvard University, USA • 11 classes, 24 hours for only 5,990.-' with crystal-clear syllabus breakdown.",
       fr: "Cours de Langue (Ad 2) : Accroche basée sur l'urgence des vacances et le prestige du tuteur certifié Harvard University avec détail des 11 cours pour 5 990 ฿."
     }
   },
@@ -1031,7 +1118,7 @@ export const onlineMarketingStrategies: OnlineMarketingStrategy[] = [
       fr: "Campagne Facebook à micro-budget générant 12 prospects à 8,33 ฿/lead"
     },
     category: {
-      en: "Real Estate Rental (อสังหาริมทรัพย์)",
+      en: "Real Estate Rental",
       fr: "Location Immobilière"
     },
     description: {
@@ -1086,7 +1173,7 @@ export const onlineMarketingStrategies: OnlineMarketingStrategy[] = [
       fr: "Campagne IELTS particulier générant 24 demandes d'élèves à 43,57 ฿/lead"
     },
     category: {
-      en: "Language Course (คอร์สสอนภาษา)",
+      en: "Language Course",
       fr: "Formation Linguistique"
     },
     description: {
@@ -1101,7 +1188,7 @@ export const onlineMarketingStrategies: OnlineMarketingStrategy[] = [
     ],
     tactics: [
       {
-        name: { en: "School Break Urgency Hook ('ปิดเทอม')", fr: "Accroche sur les Vacances Scolaires" },
+        name: { en: "School Break Urgency Hook", fr: "Accroche sur les Vacances Scolaires" },
         description: {
           en: "Capitalized on the holiday window when students must prepare IELTS scores for overseas university applications.",
           fr: "Exploitation de la fenêtre des vacances scolaires propice à la préparation des concours et séjours d'études."

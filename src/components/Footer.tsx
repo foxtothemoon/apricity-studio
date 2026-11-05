@@ -15,7 +15,7 @@ export default function Footer() {
             {t('footer.open')}
           </span>
           <h2 className="text-3xl md:text-5xl font-semibold mb-5 text-white leading-tight tracking-tight">
-            {t('footer.title.1')} <br/><span className="text-stone-400">{t('footer.title.2')}</span>
+            {t('footer.title')}
           </h2>
           <p className="text-stone-400 text-base max-w-md leading-relaxed mb-8">
             {t('footer.desc')}
@@ -24,7 +24,7 @@ export default function Footer() {
             to="/about#contact"
             className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-orange-600 text-white text-xs font-semibold uppercase tracking-wider hover:bg-orange-500 transition-all shadow-md active:scale-95"
           >
-            <span>Let's Discuss Your Project</span>
+            <span>{t('footer.btn')}</span>
             <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>
@@ -36,23 +36,23 @@ export default function Footer() {
           </span>
           <ul className="space-y-3 text-sm text-stone-300">
             <li>
-              <Link to="/web-design" className="hover:text-orange-400 transition-colors">
-                {t('nav.web')}
-              </Link>
-            </li>
-            <li>
               <Link to="/ux-ui" className="hover:text-orange-400 transition-colors">
                 {t('nav.uxui')}
               </Link>
             </li>
             <li>
-              <Link to="/graphic-design" className="hover:text-orange-400 transition-colors">
-                {t('nav.graphic')}
+              <Link to="/web-design" className="hover:text-orange-400 transition-colors">
+                {t('nav.web')}
               </Link>
             </li>
             <li>
-              <Link to="/online-marketing" className="hover:text-orange-400 transition-colors">
-                {t('nav.marketing')}
+              <Link to="/vibe-coding" className="hover:text-orange-400 transition-colors">
+                {t('nav.vibecoding')}
+              </Link>
+            </li>
+            <li>
+              <Link to="/graphic-design" className="hover:text-orange-400 transition-colors">
+                {t('nav.graphic')}
               </Link>
             </li>
             <li>

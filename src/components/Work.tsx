@@ -1,29 +1,29 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Sun, Globe, Smartphone, Palette, TrendingUp, LayoutGrid } from 'lucide-react';
+import { Sun, Globe, Smartphone, Sparkles, Palette, LayoutGrid } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { CategoryFilter } from '../types';
-import WebDesignSection from './WebDesignSection';
 import AppDesignSection from './AppDesignSection';
+import WebDesignSection from './WebDesignSection';
+import VibeCodingSection from './VibeCodingSection';
 import GraphicDesignSection from './GraphicDesignSection';
-import OnlineMarketingSection from './OnlineMarketingSection';
 
 export default function Work() {
   const { t } = useLanguage();
   const [activeFilter, setActiveFilter] = useState<CategoryFilter>('all');
 
-  // Handle URL hash changes (e.g. #wordpress-web, #ux-ui-app, #graphic-design, #online-marketing)
+  // Handle URL hash changes
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash;
-      if (hash === '#wordpress-web' || hash === '#web-design') {
-        setActiveFilter('wordpress_web');
-      } else if (hash === '#ux-ui-app' || hash === '#app-design') {
+      if (hash === '#ux-ui-app' || hash === '#ux-ui' || hash === '#app-design') {
         setActiveFilter('ux_ui_app');
+      } else if (hash === '#wordpress-web' || hash === '#web-design') {
+        setActiveFilter('wordpress_web');
+      } else if (hash === '#vibe-coding') {
+        setActiveFilter('vibe_coding');
       } else if (hash === '#graphic-design') {
         setActiveFilter('graphic_design');
-      } else if (hash === '#online-marketing') {
-        setActiveFilter('online_marketing');
       }
     };
 
@@ -33,11 +33,11 @@ export default function Work() {
   }, []);
 
   const filterTabs: { id: CategoryFilter; labelKey: string; icon: typeof Globe; count: number }[] = [
-    { id: 'all', labelKey: 'filter.all', icon: LayoutGrid, count: 13 },
+    { id: 'all', labelKey: 'filter.all', icon: LayoutGrid, count: 11 },
+    { id: 'ux_ui_app', labelKey: 'filter.uxui', icon: Smartphone, count: 1 },
     { id: 'wordpress_web', labelKey: 'filter.wordpress', icon: Globe, count: 4 },
-    { id: 'ux_ui_app', labelKey: 'filter.uxui', icon: Smartphone, count: 2 },
+    { id: 'vibe_coding', labelKey: 'filter.vibecoding', icon: Sparkles, count: 2 },
     { id: 'graphic_design', labelKey: 'filter.graphic', icon: Palette, count: 4 },
-    { id: 'online_marketing', labelKey: 'filter.marketing', icon: TrendingUp, count: 3 },
   ];
 
   return (
@@ -95,7 +95,7 @@ export default function Work() {
         </div>
       </div>
 
-      {/* Render Categorized Content */}
+      {/* Render Categorized Content in user-requested order */}
       <AnimatePresence mode="wait">
         <motion.div
           key={activeFilter}
@@ -104,24 +104,24 @@ export default function Work() {
           exit={{ opacity: 0, y: -15 }}
           transition={{ duration: 0.3 }}
         >
-          {/* 1. WordPress Web Design & SEO/SEM */}
-          {(activeFilter === 'all' || activeFilter === 'wordpress_web') && (
-            <WebDesignSection />
-          )}
-
-          {/* 2. UX/UI Designer & App Design */}
+          {/* 1. UX/UI & App Design */}
           {(activeFilter === 'all' || activeFilter === 'ux_ui_app') && (
             <AppDesignSection />
           )}
 
-          {/* 3. Graphic Design */}
-          {(activeFilter === 'all' || activeFilter === 'graphic_design') && (
-            <GraphicDesignSection />
+          {/* 2. Web Design & WordPress */}
+          {(activeFilter === 'all' || activeFilter === 'wordpress_web') && (
+            <WebDesignSection />
           )}
 
-          {/* 4. Online Marketing */}
-          {(activeFilter === 'all' || activeFilter === 'online_marketing') && (
-            <OnlineMarketingSection />
+          {/* 3. Vibe Coding & AI Full-Stack */}
+          {(activeFilter === 'all' || activeFilter === 'vibe_coding') && (
+            <VibeCodingSection />
+          )}
+
+          {/* 4. Graphic Design */}
+          {(activeFilter === 'all' || activeFilter === 'graphic_design') && (
+            <GraphicDesignSection />
           )}
         </motion.div>
       </AnimatePresence>
